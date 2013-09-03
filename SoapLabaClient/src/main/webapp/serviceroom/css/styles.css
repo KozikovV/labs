@@ -1,0 +1,27 @@
+/*
+*
+*
+*
+* Forms for registration user
+*
+*
+*
+*/
+
+#regPane{
+	margin-top: 80px;;
+}
+
+#regPane table{
+	margin: auto;
+}
+
+#regPane tr{
+	
+}
+
+#regPane select, input[type='text']{
+	width: 200px;
+	margin-top: 5px;
+	margin-bottom:  5px;
+}

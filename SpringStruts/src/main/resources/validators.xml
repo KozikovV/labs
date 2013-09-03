@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator Config 1.0//EN" 
+ "http://www.opensymphony.com/xwork/xwork-validator-config-1.0.dtd">
+<validators>
+	<validator name="existEmail"
+		class="com.nixsolutions.web.validator.ExistEmailValidator" />
+	<validator name="existEmailForEdit"
+		class="com.nixsolutions.web.validator.ExistEmailForEditValidator" />
+	<validator name="existLogin"
+		class="com.nixsolutions.web.validator.ExistLoginValidator" />
+	<validator name="password"
+		class="com.nixsolutions.web.validator.PasswordValidator" />
+	<validator name="captcha"
+		class="com.nixsolutions.web.validator.CaptchaValidator" />
+</validators>

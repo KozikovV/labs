@@ -1,0 +1,6 @@
+<jdbc-setting>
+	<db-user-name>zinchenko</db-user-name>
+	<db-user-password>1234</db-user-password>
+	<driver-class-name>org.h2.Driver</driver-class-name>
+	<url>jdbc:h2:db</url>
+</jdbc-setting>

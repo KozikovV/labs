@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+
+	<h:link value="Add new user" outcome="addUser" />
+	<br />
+
+	<h:form>
+		<h:dataTable value="#{userBean.users}" var="user"  styleClass="usersTable" >
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Login" />
+				</f:facet>
+				<h:outputLabel value="#{user.login}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="First nane" />
+				</f:facet>
+				<h:outputLabel value="#{user.firstName}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Last name" />
+				</f:facet>
+				<h:outputLabel value="#{user.lastName}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Age" />
+				</f:facet>
+				<h:outputLabel value="#{user.age}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Role" />
+				</f:facet>
+				<h:outputLabel value="#{user.role.name}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Actions" />
+				</f:facet>
+				<h:commandLink value="Delete" action="#{userBean.remove(user)}" onclick="return confirm('Delete?');"/>
+				<h:outputText value="  "/>
+				<h:commandLink value="Edit" action="#{userBean.goEdit(user)}" />
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+
+
+
+</ui:composition>

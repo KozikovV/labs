@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+     
+     <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout"> 
+           <param name="ConversionPattern" value="%d{ISO8601} [%-5p][%50.50l] - %m%n"/> 
+        </layout> 
+     </appender>
+     
+<!--      %d{ISO8601} [%-5p][%50.50c][%15.15M] - %m%n -->
+     
+     <logger name="com.nixsolutions">
+     	<level value="DEBUG"/>
+     </logger>
+
+     <logger name="com.opensymphony">
+         <level value="ERROR" />
+     </logger>
+
+     <logger name="org.apache.struts2">
+          <level value="ERROR" />
+     </logger>
+   
+      <root>
+         <priority value="INFO"/> 
+         <appender-ref ref="STDOUT" /> 
+      </root> 
+     
+</log4j:configuration>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nixsolutions.com/restlaba/schema/beans" xmlns:r="http://nixsolutions.com/restlaba/schema/beans">
+    <element name="BigRequest">
+        <complexType>
+            <sequence>
+                <element name="header" type="r:Header"/>
+                <element name="bigBody" type="r:Body"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="SmallRequest">
+        <complexType>
+            <sequence>
+                <element name="smallBody"  type="r:SmallBody"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="SmallBody">
+        <sequence>
+            <element name="content" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Header">
+        <sequence>
+            <element name="title" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="Body">
+        <sequence>
+            <element name="content" type="string"/>
+        </sequence>
+    </complexType>
+
+</schema>
+
+<!--<xsd:schema xmlns="http://nixsolutions.com/restlaba/schema/beans" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nixsolutions.com/restlaba/schema/beans">-->
+<!--<xsd:element name="GA1" type="GA1"/>-->
+
+<!--<xsd:complexType name="GA1">-->
+    <!--<xsd:annotation>-->
+        <!--<xsd:documentation></xsd:documentation>-->
+    <!--</xsd:annotation>-->
+    <!--<xsd:sequence>-->
+        <!--<xsd:element name="Header" type="xsd:string"/>-->
+    <!--</xsd:sequence>-->
+<!--</xsd:complexType>-->
+
+<!--</xsd:schema>-->
+
+<!--<schema targetNamespace="http://www.connecture.com/Schemas/GetQuote/SG" xmlns:gq="http://www.connecture.com/Schemas/GetQuote/SG"
+        xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <element name="SGCreateQuoteRequest">
+        <complexType>
+            <sequence>
+                <element name="Request" type="gq:GetQuoteRequestType"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="GetQuoteRequestType">
+        <sequence>
+            <element name="FileInformation" type="string" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+</schema>-->
+

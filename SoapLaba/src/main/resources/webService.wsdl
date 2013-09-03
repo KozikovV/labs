@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" name="WebService"
+	targetNamespace="http://soaplaba.nixsolutions.com/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:types="http://soaplaba.nixsolutions.com/soap/types" xmlns:tns="http://soaplaba.nixsolutions.com/soap">
+
+<!-- 	<wsp:Policy wsu:Id="UsernameToken" -->
+<!-- 		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" -->
+<!-- 		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"> -->
+<!-- 		<wsp:ExactlyOne> -->
+<!-- 			<wsp:All> -->
+<!-- 				Пустой элемент <TransportBinding/> здесь необходим в виду ошибки -->
+<!-- 					в коде CXF версии 2.2.6 -->
+<!-- 				<sp:TransportBinding /> -->
+<!-- 				<sp:SupportingTokens> -->
+<!-- 					<wsp:Policy> -->
+<!-- 						<sp:UsernameToken sp: -->
+<!-- 							IncludeToken=".../IncludeToken/AlwaysToRecipient" /> -->
+<!-- 					</wsp:Policy> -->
+<!-- 				</sp:SupportingTokens> -->
+<!-- 			</wsp:All> -->
+<!-- 		</wsp:ExactlyOne> -->
+<!-- 	</wsp:Policy> -->
+
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://soaplaba.nixsolutions.com/soap/types"
+			elementFormDefault="qualified" xmlns:domain="http://soaplaba.nixsolutions.com/domain">
+
+			<element name="getUsersNumber">
+				<complexType />
+			</element>
+			<element name="getUsersNumberResponse">
+				<complexType>
+					<sequence>
+						<element name="responseType" minOccurs="0" type="int" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="getUserByLogin">
+				<complexType>
+					<sequence>
+						<element name="login" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="getUserByLoginResponse">
+				<complexType>
+					<sequence>
+						<element name="responseType" type="types:UserType" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="getUsers">
+				<complexType />
+			</element>
+			<element name="getUsersResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0" name="return"
+							type="types:UserType" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="addUser">
+				<complexType>
+					<sequence>
+						<element name="userType" type="types:UserType" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="addUserResponse">
+				<complexType />
+			</element>
+
+			<element name="updateUser">
+				<complexType>
+					<sequence>
+						<element name="userType" type="types:UserType" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="updateUserResponse">
+				<complexType />
+			</element>
+
+			<element name="removeUser">
+				<complexType>
+					<sequence>
+						<element type="long" minOccurs="0" name="id" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="removeUserResponse">
+				<complexType />
+			</element>
+
+			<element name="findByEmailUser">
+				<complexType>
+					<sequence>
+						<element type="string" name="email" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="findByEmailUserResponse">
+				<complexType>
+					<sequence>
+						<element type="types:UserType" name="return" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="getRoles">
+				<complexType />
+			</element>
+			<element name="getRolesRosponse">
+				<complexType>
+					<sequence>
+						<element name="return" type="types:RoleType" maxOccurs="unbounded"
+							minOccurs="0" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<complexType name="UserType">
+				<sequence>
+					<element name="id" minOccurs="0" type="long" />
+					<element name="firstName" type="string" />
+					<element name="lastName" type="string" />
+					<element name="login" type="string" />
+					<element name="email" type="string" />
+					<element name="password" type="string" />
+					<element name="birthDate" type="date" />
+
+					<element name="role" type="types:RoleType" />
+				</sequence>
+			</complexType>
+
+			<complexType name="RoleType">
+				<sequence>
+					<element name="id" minOccurs="0" type="long" />
+					<element name="name" type="string" />
+				</sequence>
+			</complexType>
+
+		</schema>
+	</types>
+
+	<message name="getUsersNumber">
+		<part name="in" element="types:getUsersNumber" />
+	</message>
+	<message name="getUsersNumberResponse">
+		<part name="out" element="types:getUsersNumberResponse" />
+	</message>
+
+	<message name="getUserByLogin">
+		<part name="in" element="types:getUserByLogin" />
+	</message>
+	<message name="getUserByLoginResponse">
+		<part name="out" element="types:getUserByLoginResponse" />
+	</message>
+
+	<message name="getUsers">
+		<part name="in" element="types:getUsers" />
+	</message>
+	<message name="getUsersResponse">
+		<part name="out" element="types:getUsersResponse" />
+	</message>
+
+	<message name="addUser">
+		<part name="in" element="types:addUser" />
+	</message>
+	<message name="addUserResponse">
+		<part name="out" element="types:addUserResponse" />
+	</message>
+
+	<message name="updateUser">
+		<part name="in" element="types:updateUser" />
+	</message>
+	<message name="updateUserResponse">
+		<part name="out" element="types:updateUserResponse" />
+	</message>
+
+	<message name="getRoles">
+		<part name="in" element="types:getRoles" />
+	</message>
+	<message name="getRolesResponse">
+		<part name="out" element="types:getRolesRosponse" />
+	</message>
+
+	<message name="removeUser">
+		<part name="in" element="types:removeUser" />
+	</message>
+	<message name="removeUserResponse">
+		<part name="out" element="types:removeUserResponse" />
+	</message>
+
+	<message name="findByEmailUser">
+		<part name="in" element="types:findByEmailUser" />
+	</message>
+	<message name="findByEmailUserResponse">
+		<part name="out" element="types:findByEmailUserResponse" />
+	</message>
+
+	<portType name="PortType">
+		<operation name="getUsersNumber">
+			<input message="tns:getUsersNumber" name="getUsersNumber" />
+			<output message="tns:getUsersNumberResponse" name="getUsersNumberResponse" />
+		</operation>
+
+		<operation name="getUserByLogin">
+			<input message="tns:getUserByLogin" name="getUserByLogin" />
+			<output message="tns:getUserByLoginResponse" name="getUsrByLoginResponse" />
+		</operation>
+
+		<operation name="getUsers">
+			<input message="tns:getUsers" name="getUsers" />
+			<output message="tns:getUsersResponse" name="getUsersResponse" />
+		</operation>
+
+		<operation name="addUser">
+			<input message="tns:addUser" name="addUser" />
+			<output message="tns:addUserResponse" name="addUserResponse" />
+		</operation>
+
+		<operation name="updateUser">
+			<input message="tns:updateUser" name="updateUser" />
+			<output message="tns:updateUserResponse" name="updateUserResponse" />
+		</operation>
+
+		<operation name="getRoles">
+			<input message="tns:getRoles" name="getRoles" />
+			<output message="tns:getRolesResponse" name="getRoleResponse" />
+		</operation>
+
+		<operation name="removeUser">
+			<input message="tns:removeUser" name="removeUser" />
+			<output message="tns:removeUserResponse" name="removeUserResponse" />
+		</operation>
+
+		<operation name="findByEmailUser">
+			<input message="tns:findByEmailUser" name="findByEmailUser" />
+			<output message="tns:findByEmailUserResponse" name="findByEmailResponse" />
+		</operation>
+
+	</portType>
+
+	<binding name="WebServiceBinder" type="tns:PortType">
+<!-- 		<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" -->
+<!-- 			URI="#UsernameToken" /> -->
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="getUsersNumber">
+			<soap:operation soapAction="http://soaplaba.nixsolutions.com/getUsersNumber" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="getUserByLogin">
+			<soap:operation soapAction="http://soaplaba.nixsolutions.com/getUserByLogin" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="getUsers">
+			<soap:operation soapAction="http://soaplaba.nixsolutions.com/getUsers" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="addUser">
+			<soap:operation soapAction="http://soaplaba.nixsolutions.com/addUser" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="updateUser">
+			<soap:operation soapAction="http://soaplaba.nixsolutions.com/updateUser" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="getRoles">
+			<soap:operation soapAction="http://soaplaba.nixsolutions.com/getRoles" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="removeUser">
+			<soap:operation soapAction="http://soaplaba.nixsolutions.com/removeUser" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="findByEmailUser">
+			<soap:operation soapAction="http://soaplaba.nixsolutions.com/findByEmailUser" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+
+	<service name="WebService">
+		<port name="WebServicePort" binding="tns:WebServiceBinder">
+			<soap:address location="http://soaplaba.nixsolutions.com/soap" />
+		</port>
+	</service>
+
+</definitions>

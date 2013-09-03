@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+	<tr>
+		<td>Login</td>
+		<td><h:inputText value="#{userBean.login}" id="login"
+				required="true" /></td>
+		<td><h:message for="login" /></td>
+	</tr>
+
+	<tr>
+		<td>Password</td>
+		<td><h:inputSecret value="#{userBean.password}" id="password"
+				required="true" /></td>
+		<td><h:message id="pm" for="password" /></td>
+	</tr>
+
+	<tr>
+		<td>Password again</td>
+		<td><h:inputSecret value="#{userBean.passwordAgain}"
+				id="passwordAgain" required="true" /></td>
+		<td><h:message for="passwordAgain" /></td>
+	</tr>
+
+	<tr>
+		<td>Email</td>
+		<td><h:inputText value="#{userBean.email}" id="email"
+				required="true">
+				<f:validateRegex
+					pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+			</h:inputText></td>
+		<td><h:message for="email" /></td>
+	</tr>
+
+	<tr>
+		<td>First name</td>
+		<td><h:inputText value="#{userBean.firstName}" id="firstName"
+				required="true" /></td>
+		<td><h:message for="firstName" /></td>
+	</tr>
+
+	<tr>
+		<td>Last name</td>
+		<td><h:inputText value="#{userBean.lastName}" id="lastName"
+				required="true" /></td>
+		<td><h:message for="lastName" /></td>
+	</tr>
+
+	<tr>
+		<td>Birthday (yyyy-MM-dd)</td>
+		<td><h:inputText value="#{userBean.birthDate}" id="birthDate"
+				required="true">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+			</h:inputText></td>
+		<td><h:message for="birthDate" /></td>
+	</tr>
+
+	<tr>
+		<td>Role</td>
+		<td><h:selectOneMenu value="#{userBean.role}">
+				<f:selectItems value="#{userBean.allRoles}" var="r"
+					itemLabel="#{r.name}" itemValue="#{r.id}" />
+			</h:selectOneMenu></td>
+	</tr>
+
+</ui:composition>

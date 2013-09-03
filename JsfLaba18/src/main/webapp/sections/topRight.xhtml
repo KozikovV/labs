@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:sec="http://www.springframework.org/security/tags"
+    xmlns:spring="http://www.springframework.org/tags">
+    
+
+Admin #{request.remoteUser} 
+(
+<h:outputLink value="#{request.contextPath}/j_spring_security_logout">Logout</h:outputLink>
+)
+
+</ui:composition>

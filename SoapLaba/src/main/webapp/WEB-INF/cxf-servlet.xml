@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:soap="http://cxf.apache.org/bindings/soap" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+      http://cxf.apache.org/jaxws
+      http://cxf.apache.org/schemas/jaxws.xsd
+       http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="myPasswordCallback" class="com.nixsolutions.soaplaba.security.ServerCallback" />
+
+	<jaxws:endpoint id="WebService"
+		implementor="com.nixsolutions.soaplaba.soap.impl.PortTypeImpl"
+		address="/soap">
+
+		<jaxws:inInterceptors>
+			<ref bean="logInBound" />
+			<ref bean="inbound-security" />
+		</jaxws:inInterceptors>
+
+	</jaxws:endpoint>
+
+	<bean id="logInBound" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+
+	<bean id="inbound-security" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+		<constructor-arg>
+			<map>
+				<entry key="action" value="Signature"/>
+				<entry key="passwordType" value="PasswordDigest" />
+				<!-- <entry key="signaturePropFile" value="..." /> -->
+				<!-- <util:constant static-field="org.apache.ws.security.handler.WSHandlerConstants.ACTION" 
+					/> -->
+				<entry key="passwordCallbackRef">
+					<ref bean="myPasswordCallback" />
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+
+	<import resource="classpath:applicationContext.xml" />
+
+</beans>

@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<div class="userForm">
+
+		<h:form>
+			<h:inputHidden value="#{userBean.id}" id="id" />
+			<table>
+				<ui:include src="/sections/editUser/userForm.xhtml" />
+				<tr>
+					<td><img src="jcaptcha.jpg" /></td>
+					<td><h:inputText value="#{userBean.captcha}" id="captcha"
+							required="true" /></td>
+					<td><h:message for="captcha" /></td>
+				</tr>
+			</table>
+			<h:commandButton value="Edit" action="#{userBean.edit}" />
+			<h:commandButton value="Cancel" type="reset" />
+		</h:form>
+
+	</div>
+
+</ui:composition>

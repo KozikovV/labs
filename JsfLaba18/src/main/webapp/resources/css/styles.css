@@ -1,0 +1,84 @@
+.usersTable {
+		width: 100%;
+        
+        }
+.bold {
+		font-weight: bold;
+        
+        }
+ 
+.usersTable tr:nth-child(2n){
+	background:#CCCCFF;
+}
+
+.usersTable tr:nth-child(1){
+   background:#CCCCCC;
+}
+
+.r{
+	width: 100%
+}
+
+.top {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.topLeft { /* 	border: thin solid lightGray; */
+	/* 	background: #eeeeee; */
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	height: 50px;
+	/* 	width: 50%; */
+	padding-left: 10px
+}
+
+.topRight { /* 	border: thin solid lightGray; */
+	/* 	background: #efefef; */
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px
+}
+
+.center {
+	position: absolute;
+	top: 50px;
+	width: 95%
+}
+
+.helloPanel{
+	position: absolute;
+	width: 95%;
+	text-align: center;
+	top: 30%
+}
+
+.registration{
+	position: absolute;
+	top: 20%;
+	left: 35%
+}
+
+.registrationLabel{
+	position: absolute;
+	text-align: center;
+	top: 5%;
+	width: 95%
+}
+
+.login{
+	position: absolute;
+	top: 40%;
+	width: 95%;
+	text-align: center
+}
+
+.userForm{
+	position: absolute;
+	left: 40%
+}

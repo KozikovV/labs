@@ -1,0 +1,66 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+
+	<display-name>Archetype Created Web Application</display-name>
+
+	<servlet>
+		<servlet-name>servlet</servlet-name>
+		<servlet-class>com.nixsolutions.web.Servlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>servlet</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+
+
+
+	<filter>
+		<filter-name>checkInputData</filter-name>
+		<filter-class>com.nixsolutions.web.filter.AddUserFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>userCheck</filter-name>
+		<filter-class>com.nixsolutions.web.filter.UserCheckFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>adminCheck</filter-name>
+		<filter-class>com.nixsolutions.web.filter.AdminCheckFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>checkInputData</filter-name>
+		<url-pattern>/addNewUser.htm</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>checkInputData</filter-name>
+		<url-pattern>/editUser.htm</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>userCheck</filter-name>
+		<url-pattern>/hello.jsp</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>adminCheck</filter-name>
+		<url-pattern>/addNewUser.htm</url-pattern>
+		<url-pattern>/editUser.htm</url-pattern>
+		<url-pattern>/listUsers.htm</url-pattern>
+		<url-pattern>/deleteUser.htm</url-pattern>
+		<url-pattern>/addNewUser.htm</url-pattern>
+		<url-pattern>/addNewUserForm.htm</url-pattern>
+		<url-pattern>/editUserForm.htm</url-pattern>
+	</filter-mapping>
+
+
+
+
+
+
+</web-app>
