@@ -1,0 +1,6 @@
+.idea
+*.iml
+target*
+*.patch
+result.txt
+*rebel.xml
