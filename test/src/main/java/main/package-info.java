@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author zinchenko
- *
- */
-package main;
