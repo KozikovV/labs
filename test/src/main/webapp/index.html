@@ -1,0 +1,154 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="oop.js"></script>
+    <script type="text/javascript" src="js.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="jstest.js"></script>
+    <!--<script type="text/javascript" src="require.js"></script>-->
+
+    <!--<script type="text/javascript">-->
+
+        <!--require(["jquery", "sub/file"], function($, obj){-->
+            <!--console.log($('body'));-->
+            <!--console.log("obj:");console.log(new obj());-->
+            <!--console.log("$");-->
+        <!--});-->
+
+    <!--</script>-->
+
+    <style type="text/css">
+
+        body {
+            margin: 0px;
+            -moz-user-select: -moz-none;
+            -o-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            user-select: none
+        }
+
+        .table {
+            width: 480px;
+            height: 480px;
+            background: azure
+        }
+
+        .square {
+            position: relative;
+            float: left;
+            height: 60px;
+            width: 60px;
+            background: darkkhaki;
+        }
+
+        .show-square{
+            box-shadow: 0 0 5px 2px green;
+            z-index: 10;
+        }
+
+        .white {
+            background: antiquewhite;
+        }
+
+        .black {
+            background: lightblue;
+        }
+
+        .chessman{
+            margin-top: auto;
+            position: relative;
+            float: left;
+            left: 50%;
+        }
+
+        .chessman-add{
+            position: relative;
+            float: right;
+            right: 50%;
+        }
+
+        .chessman img{
+            margin: auto;
+        }
+
+
+
+        .super {
+            position: absolute;
+            height: 60px;
+            width: 60px;
+            background: lightblue;
+            z-index: 100;
+        }
+
+
+        .sub {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            background: cornflowerblue;
+            z-index: 100;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="mega-super">
+    <div class="super">
+        <div class="sub"></div>
+    </div>
+</div>
+
+<!--<div class="square add show-square"></div>-->
+<!--<div class="square add"></div>-->
+<!--<div class="square add show-square"></div>-->
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<script type="text/javascript">
+    $(function () {
+        var element;
+
+//        $('.super, .sub, .mega-super').click(function(event){
+//            console.log(event);
+//        });
+
+        $(".sub").mousedown(function(event){
+            console.log(event.target);
+            var target = event.target;
+
+            var dx = event.offsetX;
+            var dy = event.offsetY;
+
+            $('body').mousemove(function (event) {
+                $(target).css('left', event.pageX-dx);
+                $(target).css('top', event.pageY-dy);
+                element = target;
+//                $('.super').mouseover(function(event){
+//                    console.log(event.target);
+//                });
+            });
+        });
+//        $('.super').mousedown(function(event){
+//            element = target;
+//        });
+        $(".sub, .super").mouseup(function(event){
+            $('body').unbind('mousemove');
+            $('.super').unbind('mouseover');
+            console.log('element: ');
+            console.log($(event.currentTarget).find('.super')[0]);
+        });
+        $('.super').mousedown(function(event){
+            console.log(event.target);
+        });
+    });
+</script>
+
+
+</body>
+</html>

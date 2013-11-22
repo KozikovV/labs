@@ -4,6 +4,7 @@ import hibernate.domain.Category;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -18,5 +19,11 @@ public class CategoryDao extends AbstractDao {
     public List<Category> findAll(){
         return getCurrentSession().createCriteria(Category.class).list();
     }
+
+    @Transactional
+    public void create(Category category){
+        Serializable serializable = getCurrentSession().save(category);
+    }
+
 
 }

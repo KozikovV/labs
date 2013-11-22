@@ -19,4 +19,14 @@ public class ProductDao extends AbstractDao{
         return getCurrentSession().createCriteria(Product.class).list();
     }
 
+    @Transactional
+    public void create(Product product){
+        getCurrentSession().save(product);
+    }
+
+    @Transactional
+    public void update(Product product){
+        getCurrentSession().update(product);
+    }
+
 }

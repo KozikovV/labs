@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        var costOfPlan = "EmployeeChange.New_Benefit_Elections[0].Benefit_Updates.EE_Cost";
+        var repeatingNode = "EmployeeChange.New_Benefit_Elections";
+        var index = 10000000000000000000;
+
+        var result = repeatingNode+"["+index+"]";
+        console.log(result);
+
+        var reg = new RegExp(repeatingNode+'\\[[0-9]+\\]');
+        var chNumber = costOfPlan.match(reg)[0].length;
+        console.log(chNumber);
+        result+= costOfPlan.slice(chNumber);
+        console.log(result);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

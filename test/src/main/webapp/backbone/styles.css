@@ -1,0 +1,11 @@
+#content .bean-edit{
+    display: none;
+}
+
+
+#content .bean-editing .bean-edit{
+    display: inline;
+}
+#content .bean-editing .bean-label{
+    display: none;
+}

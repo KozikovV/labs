@@ -1,7 +1,7 @@
 package hibernate.dao;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -12,6 +12,9 @@ public class AbstractDao {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    public AbstractDao() {
+    }
 
     protected Session getCurrentSession(){
         return sessionFactory.getCurrentSession();

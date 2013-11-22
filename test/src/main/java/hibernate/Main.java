@@ -1,6 +1,7 @@
 package hibernate;
 
 import hibernate.dao.CategoryDao;
+import hibernate.dao.DomainDao;
 import hibernate.dao.ProductDao;
 import hibernate.domain.Category;
 import hibernate.domain.Product;
@@ -8,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * User: zinchenko
@@ -29,9 +28,14 @@ public class Main {
         ApplicationContext applicationContext = getAplicationContext();
         ProductDao productDao = (ProductDao) applicationContext.getBean("productDao");
         CategoryDao categoryDao = (CategoryDao) applicationContext.getBean("categoryDao");
+        DomainDao domainDao = (DomainDao) applicationContext.getBean("domainDao");
 
-        List<Product> products = productDao.findAll();
-        List<Category> categories = categoryDao.findAll();
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        domainDao.criteria();
+
+
+
     }
 
     private ApplicationContext getAplicationContext(){
@@ -39,6 +43,18 @@ public class Main {
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
         return applicationContext;
+    }
+
+    private Category createCategory(){
+        Category category = new Category();
+        category.setName("asdxxas");
+        return category;
+    }
+
+    private Product createProduct(){
+        Product product = new Product();
+        product.setTitle("ttsdf");
+        return product;
     }
 
 
