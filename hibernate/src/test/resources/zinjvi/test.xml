@@ -23,14 +23,22 @@
     </bean>
 
     <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+          <!--class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">-->
+
+
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:/zinjvi/hibernate.cfg.xml" />
+        <!--<property name="configLocation" value="classpath:/zinjvi/hibernate.cfg.xml" />-->
+        <property name="annotatedClasses">
+            <list>
+                <value>zinjvi.Role</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
-                <prop key="hibernate.hbm2ddl.import_files">/imp.sql</prop>
+                <prop key="hibernate.hbm2ddl.import_files">/im.sql</prop>
             </props>
         </property>
     </bean>
