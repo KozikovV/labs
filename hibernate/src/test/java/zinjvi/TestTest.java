@@ -3,6 +3,7 @@ package zinjvi;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * User: zinchenko
@@ -30,9 +33,10 @@ public class TestTest {
     @Transactional
     public void test() {
         Session session = sessionFactory.getCurrentSession();
+
         Criteria criteria = session.createCriteria(Role.class);
         List<Role> roles = criteria.list();
 
-
+        assertEquals(2, roles.size());
     }
 }
