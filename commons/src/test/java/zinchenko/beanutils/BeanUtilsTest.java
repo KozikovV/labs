@@ -1,4 +1,4 @@
-package tasks.commons.beanutils;
+package commons.beanutils;
 
 import zinchenko.beanutils.Bean;
 import org.apache.commons.beanutils.BeanUtils;
@@ -60,7 +60,7 @@ public class BeanUtilsTest {
         assertEquals(null, beanCloned.getName());
         assertEquals(0, beanCloned.getAge());
 
-        BeanUtils.copyProperty(beanCloned, "name", bean);
+        BeanUtils.copyProperty(beanCloned, "name", bean.getName());
 
         assertEquals(bean.getName(), beanCloned.getName());
         assertEquals(0, beanCloned.getAge());
