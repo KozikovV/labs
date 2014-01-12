@@ -23,7 +23,7 @@ public class FileFtpService {
 
         File file = new File("file.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
-        ftpClient.retrieveFile("file.txt", fileOutputStream);
+        ftpClient.retrieveFile("/file.txt", fileOutputStream);
 
 
         return "";

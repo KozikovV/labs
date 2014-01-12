@@ -1,0 +1,8 @@
+<dataset>
+    <role id="10" name="role1"/>
+    <role id="11" name="role2"/>
+    <role id="12" name="role3"/>
+    <person id="100" name="name100"/>
+    <person id="101" name="name101"/>
+    <person id="102" name="name102"/>
+</dataset>
