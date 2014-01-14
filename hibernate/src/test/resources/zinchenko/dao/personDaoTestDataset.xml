@@ -2,7 +2,7 @@
     <role id="10" name="role1"/>
     <role id="11" name="role2"/>
     <role id="12" name="role3"/>
-    <person id="100" name="name100"/>
-    <person id="101" name="name101"/>
-    <person id="102" name="name102"/>
+    <person first_name="firstName0" last_name="lastName0" about_me="name100"/>
+    <person first_name="firstName1" last_name="lastName1" about_me="name101"/>
+    <person first_name="firstName2" last_name="lastName2" about_me="name102"/>
 </dataset>

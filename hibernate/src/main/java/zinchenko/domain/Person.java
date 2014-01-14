@@ -1,35 +1,30 @@
 package zinchenko.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PERSON")
 public class Person {
 
-    @Id
-    @Column(name = "ID")
-    private Long id;
+    @EmbeddedId
+    private MultiId id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "ABOUT_ME")
+    private String aboutMe;
 
-    public Long getId() {
+    public String getAboutMe() {
+        return aboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
+        this.aboutMe = aboutMe;
+    }
+
+    public MultiId getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(MultiId id) {
         this.id = id;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 }

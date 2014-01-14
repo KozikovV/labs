@@ -3,18 +3,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <bean id="bean" class="zinchenko.Bean">
+    <bean multiId="bean" class="zinchenko.Bean">
         <property name="field" value="value"/>
     </bean>
 
-    <bean id="transactionManager"
+    <bean multiId="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
     <tx:annotation-driven />
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+    <bean multiId="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <!--<property name="driverClassName" value="org.h2.Driver" />-->
         <property name="driverClassName" value="org.postgresql.Driver" />
@@ -24,7 +24,7 @@
         <property name="password" value="1234" />
     </bean>
 
-    <bean id="sessionFactory"
+    <bean multiId="sessionFactory"
           class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
           <!--class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">-->
 
