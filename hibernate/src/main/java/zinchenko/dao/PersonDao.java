@@ -1,5 +1,6 @@
 package zinchenko.dao;
 
+import zinchenko.domain.MultiId;
 import zinchenko.domain.Person;
 
 import java.util.List;
@@ -11,5 +12,11 @@ import java.util.List;
 public interface PersonDao {
 
     public List<Person> findAll();
+
+    public Person find(MultiId multiId);
+
+    public void save(Person person);
+
+    public void delete(Person person);
 
 }
