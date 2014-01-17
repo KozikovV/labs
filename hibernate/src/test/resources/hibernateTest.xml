@@ -28,7 +28,8 @@
         <property name="packagesToScan" value="zinchenko.domain"/>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">zinchenko.CustomPostgreDialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <!--<prop key="hibernate.dialect">zinchenko.CustomPostgreDialect</prop>-->
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>

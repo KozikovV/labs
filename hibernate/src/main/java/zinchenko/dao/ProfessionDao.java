@@ -9,7 +9,7 @@ public interface ProfessionDao {
 
     public List<Car> findAll();
 
-    public Profession find(Long multiId);
+    public Profession find(Long id);
 
     public Long save(Profession profession);
 

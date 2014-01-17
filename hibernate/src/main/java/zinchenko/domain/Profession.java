@@ -2,6 +2,7 @@ package zinchenko.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 public class Profession {
 
     @Id
+    @GeneratedValue
     @Column(name="ID")
     private Long id;
 
