@@ -10,7 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import zinchenko.domain.Person;
-import zinchenko.domain.Role;
+import zinchenko.domain.Profession;
 
 import java.util.List;
 
@@ -34,9 +34,9 @@ public class TestTest {
     @Transactional
     public void test() {
         Session session = sessionFactory.getCurrentSession();
-        Criteria criteria = session.createCriteria(Role.class);
-        List<Role> roles = criteria.list();
-        assertEquals(2, roles.size());
+        Criteria criteria = session.createCriteria(Profession.class);
+        List<Profession> professions = criteria.list();
+        assertEquals(2, professions.size());
 
         assertEquals(0, sessionFactory.getCurrentSession().createCriteria(Person.class).list());
     }

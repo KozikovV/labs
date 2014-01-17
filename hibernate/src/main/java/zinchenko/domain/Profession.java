@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ROLE")
-public class Role {
+@Table(name="PROFESSION")
+public class Profession {
 
     @Id
     @Column(name="ID")
@@ -57,7 +57,7 @@ public class Role {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Role other = (Role) obj;
+        Profession other = (Profession) obj;
         if (id == null) {
             if (other.id != null) {
                 return false;

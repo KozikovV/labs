@@ -1,7 +1,7 @@
 <dataset>
-    <role id="10" name="role1"/>
-    <role id="11" name="role2"/>
-    <role id="12" name="role3"/>
+    <profession id="10" name="prof1"/>
+    <profession id="11" name="prof2"/>
+    <profession id="12" name="prof3"/>
     <person first_name="firstName0" last_name="lastName0" about_me="name100"/>
     <person first_name="firstName1" last_name="lastName1" about_me="name101"/>
     <person first_name="firstName2" last_name="lastName2" about_me="name102"/>

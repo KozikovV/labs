@@ -20,6 +20,8 @@ public class Car {
     @OneToOne
     private Person person;
 
+    private String model;
+
     public Long getId() {
         return id;
     }
@@ -34,5 +36,13 @@ public class Car {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }

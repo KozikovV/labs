@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="personHibernateCritDao" class="zinchenko.dao.impl.PersonHibernateCritDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="personHibernateHqlDao" class="zinchenko.dao.impl.PersonHibernateHqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="carHibernateCritDao" class="zinchenko.dao.impl.CarHibernateCritDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="carHibernateHqlDao" class="zinchenko.dao.impl.CarHibernateHqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="professionHibCritDao" class="zinchenko.dao.impl.ProfessionHibCritDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="professionHibHqlDao" class="zinchenko.dao.impl.ProfessionHibHqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+</beans>

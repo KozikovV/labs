@@ -33,7 +33,7 @@
         <!--<property name="configLocation" value="classpath:/zinjvi/hibernate.cfg.xml" />-->
         <property name="annotatedClasses">
             <list>
-                <value>zinchenko.domain.Role</value>
+                <value>zinchenko.domain.Profession</value>
                 <value>zinchenko.domain.Person</value>
             </list>
         </property>

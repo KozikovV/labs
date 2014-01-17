@@ -1,46 +1,36 @@
 package zinchenko.dao.impl;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
-import zinchenko.dao.PersonDao;
-import zinchenko.domain.MultiId;
-import zinchenko.domain.Person;
+import zinchenko.dao.ProfessionDao;
+import zinchenko.domain.Car;
+import zinchenko.domain.Profession;
 
 import java.util.List;
 
-/**
- * User: zinchenko
- * Date: 12.01.14
- */
-public class PersonHibernateCritDao implements PersonDao {
-
-    public PersonHibernateCritDao() {
-
-    }
+public class ProfessionHibCritDao implements ProfessionDao {
 
     private SessionFactory sessionFactory;
 
     @Override
     @Transactional
-    public List<Person> findAll() {
-       return sessionFactory.getCurrentSession().createCriteria(Person.class).list();
+    public List<Car> findAll() {
+        return sessionFactory.getCurrentSession().createCriteria(Profession.class).list();
     }
 
     @Override
-    public Person find(MultiId multiId) {
+    public Profession find(Long multiId) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     @Transactional
-    public MultiId save(Person person) {
-        Session session = sessionFactory.getCurrentSession();
-        return (MultiId) session.save(person);
+    public Long save(Profession profession) {
+        return (Long) sessionFactory.getCurrentSession().save(profession);
     }
 
     @Override
-    public void delete(Person person) {
+    public void delete(Profession profession) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 

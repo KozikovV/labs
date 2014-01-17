@@ -17,6 +17,14 @@ public class MultiId implements Serializable{
     @Column(name = "LAST_NAME")
     private String lastName;
 
+    public MultiId() {
+    }
+
+    public MultiId(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public String getFirstName() {
         return firstName;
     }

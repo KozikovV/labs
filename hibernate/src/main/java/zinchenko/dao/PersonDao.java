@@ -15,7 +15,7 @@ public interface PersonDao {
 
     public Person find(MultiId multiId);
 
-    public void save(Person person);
+    public MultiId save(Person person);
 
     public void delete(Person person);
 

@@ -12,6 +12,9 @@ public class Person {
     @Column(name = "ABOUT_ME")
     private String aboutMe;
 
+//    @Column(name = "PROFESSION")
+//    private Profession profession;
+
     public String getAboutMe() {
         return aboutMe;
     }
@@ -27,4 +30,12 @@ public class Person {
     public void setId(MultiId id) {
         this.id = id;
     }
+
+//    public Profession getProfession() {
+//        return profession;
+//    }
+//
+//    public void setProfession(Profession profession) {
+//        this.profession = profession;
+//    }
 }
