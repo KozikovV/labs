@@ -34,7 +34,7 @@ public abstract class ProfessionAbstractTest {
 
     @Test
     public void testFindAll() {
-        assertEquals(3, professionDao.findAll().size());
+        assertEquals(4, professionDao.findAll().size());
     }
 
     @Test
@@ -60,11 +60,11 @@ public abstract class ProfessionAbstractTest {
     @Test
     public void testDelete() {
         Profession profession = new Profession();
-        profession.setId(10L);
+        profession.setId(19L);
 
         professionDao.delete(profession);
 
-        assertEquals(2, professionDao.findAll().size());
+        assertEquals(3, professionDao.findAll().size());
     }
 
     @Test

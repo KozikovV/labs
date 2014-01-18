@@ -8,10 +8,10 @@ public interface CarDao {
 
     public List<Car> findAll();
 
-    public Car find(Long multiId);
+    public Car find(Long id);
 
-    public Long save(Car person);
+    public Long save(Car car);
 
-    public void delete(Car person);
+    public void delete(Car car);
 
 }

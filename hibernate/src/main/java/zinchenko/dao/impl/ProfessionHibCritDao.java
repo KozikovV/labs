@@ -12,7 +12,7 @@ public class ProfessionHibCritDao implements ProfessionDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public List<Car> findAll() {
+    public List<Profession> findAll() {
         return sessionFactory.getCurrentSession().createCriteria(Profession.class).list();
     }
 

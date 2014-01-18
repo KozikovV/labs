@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProfessionDao {
 
-    public List<Car> findAll();
+    public List<Profession> findAll();
 
     public Profession find(Long id);
 

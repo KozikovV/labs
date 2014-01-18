@@ -1,24 +1,28 @@
 package zinchenko.domain;
 
+import org.hibernate.annotations.Generated;
+
 import javax.persistence.*;
 
 /**
  * User: zinchenko
  * Date: 13.01.14
  */
-@Entity(name = "CAR")
+@Entity
+@Table(name = "CAR")
 public class Car {
 
     @Id
+    @GeneratedValue
     private Long id;
 
-    @MapsId("multiId")
-    @JoinColumns({
-            @JoinColumn(name = "person_first_name", referencedColumnName = "first_name"),
-            @JoinColumn(name = "person_last_name", referencedColumnName = "last_name")
-    })
-    @OneToOne
-    private Person person;
+//    @MapsId("multiId")
+//    @JoinColumns({
+//            @JoinColumn(name = "owner_first_name", referencedColumnName = "first_name"),
+//            @JoinColumn(name = "owner_last_name", referencedColumnName = "last_name")
+//    })
+//    @OneToOne
+//    private Person owner;
 
     private String model;
 
@@ -30,13 +34,13 @@ public class Car {
         this.id = id;
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
+//    public Person getOwher() {
+//        return owner;
+//    }
+//
+//    public void setOwner(Person owner) {
+//        this.owner = owner;
+//    }
 
     public String getModel() {
         return model;

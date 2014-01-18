@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import zinchenko.dao.PersonDao;
 import zinchenko.domain.MultiId;
 import zinchenko.domain.Person;
+import zinchenko.domain.Profession;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,22 +19,34 @@ public class PersonHibernateHqlDao implements PersonDao {
 
     @Override
     public List<Person> findAll() {
-        return new ArrayList<Person>();
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Person").list();
     }
 
     @Override
     public Person find(MultiId multiId) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return (Person) sessionFactory.getCurrentSession()
+                .createQuery("from Person as person where person.id = :id")
+                .setParameter("id", multiId).uniqueResult();
     }
 
     @Override
     public MultiId save(Person person) {
-        return new MultiId();
+        return (MultiId) sessionFactory.getCurrentSession().save(person);
     }
 
     @Override
     public void delete(Person person) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        sessionFactory.getCurrentSession().delete(person);
+    }
+
+    @Override
+    public List<Person> findByProfession(Profession profession) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Person as person " +
+                        "where person.profession = :profession")
+                .setParameter("profession", profession)
+                .list();
     }
 
     public SessionFactory getSessionFactory() {

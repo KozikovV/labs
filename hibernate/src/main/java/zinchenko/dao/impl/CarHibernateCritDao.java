@@ -14,22 +14,24 @@ public class CarHibernateCritDao implements CarDao{
 
     @Override
     public List<Car> findAll() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return sessionFactory.getCurrentSession()
+                .createCriteria(Car.class).list();
     }
 
     @Override
-    public Car find(Long multiId) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public Car find(Long id) {
+        return (Car) sessionFactory.getCurrentSession()
+                .get(Car.class, id);
     }
 
     @Override
-    public Long save(Car person) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public Long save(Car car) {
+        return (Long) sessionFactory.getCurrentSession().save(car);
     }
 
     @Override
-    public void delete(Car person) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void delete(Car car) {
+        sessionFactory.getCurrentSession().delete(car);
     }
 
     public SessionFactory getSessionFactory() {

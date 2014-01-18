@@ -1,6 +1,7 @@
 package zinchenko.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "PERSON")
@@ -12,8 +13,12 @@ public class Person {
     @Column(name = "ABOUT_ME")
     private String aboutMe;
 
-//    @Column(name = "PROFESSION")
-//    private Profession profession;
+    @ManyToOne
+    @JoinColumn(name = "PROFESSION_ID")
+    private Profession profession;
+
+//    @Column(name="BIRTHDATE")
+//    private Date birthdate;
 
     public String getAboutMe() {
         return aboutMe;
@@ -31,11 +36,11 @@ public class Person {
         this.id = id;
     }
 
-//    public Profession getProfession() {
-//        return profession;
-//    }
-//
-//    public void setProfession(Profession profession) {
-//        this.profession = profession;
-//    }
+    public Profession getProfession() {
+        return profession;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
+    }
 }

@@ -2,7 +2,18 @@
     <profession id="10" name="prof1"/>
     <profession id="11" name="prof2"/>
     <profession id="12" name="prof3"/>
-    <person first_name="firstName0" last_name="lastName0" about_me="name100"/>
-    <person first_name="firstName1" last_name="lastName1" about_me="name101"/>
-    <person first_name="firstName2" last_name="lastName2" about_me="name102"/>
+    <profession id="19" name="profFree"/>
+
+    <person first_name="firstName0" last_name="lastName0" profession_id="10" about_me="name100"/>
+    <person first_name="firstName1" last_name="lastName1" profession_id="11" about_me="name101"/>
+    <person first_name="firstName2" last_name="lastName2" profession_id="12" about_me="name102"/>
+    <person first_name="firstName3" last_name="lastName3" profession_id="12" about_me="name103"/>
+
+
+    <!--<car id="50" model="model0" owner_first_name="firstName0" owner_last_name="lastName0"/>-->
+    <car id="50" model="model0"/>
+    <!--<car id="51" model="model1" owner_first_name="firstName1" owner_last_name="lastName1"/>-->
+    <car id="51" model="model1"/>
+    <!--<car id="52" model="model2" owner_first_name="firstName2" owner_last_name="lastName2"/>-->
+    <car id="52" model="model2"/>
 </dataset>

@@ -12,23 +12,29 @@ public class ProfessionHibHqlDao implements ProfessionDao{
     protected SessionFactory sessionFactory;
 
     @Override
-    public List<Car> findAll() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public List<Profession> findAll() {
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("from Profession as profession")
+                .list();
     }
 
     @Override
-    public Profession find(Long multiId) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public Profession find(Long id) {
+        return (Profession) sessionFactory.getCurrentSession()
+                .createQuery("from Profession as prof where prof.id = :id")
+                .setLong("id", id)
+                .uniqueResult();
     }
 
     @Override
     public Long save(Profession profession) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return (Long) sessionFactory.getCurrentSession().save(profession);
     }
 
     @Override
     public void delete(Profession profession) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        sessionFactory.getCurrentSession().delete(profession);
     }
 
     public SessionFactory getSessionFactory() {
