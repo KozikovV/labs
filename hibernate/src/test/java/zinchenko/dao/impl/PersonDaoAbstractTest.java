@@ -1,5 +1,8 @@
 package zinchenko.dao.impl;
 
+import org.apache.commons.lang.time.DateFormatUtils;
+import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.lang.time.FastDateFormat;
 import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.Before;
@@ -10,6 +13,7 @@ import zinchenko.domain.MultiId;
 import zinchenko.domain.Person;
 import zinchenko.domain.Profession;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -42,7 +46,7 @@ public abstract class PersonDaoAbstractTest {
     @Test
     public void testFindAll(){
         List<Person> users = personDao.findAll();
-        assertEquals(4, users.size());
+        assertEquals(5, users.size());
     }
 
     @Test
@@ -71,7 +75,7 @@ public abstract class PersonDaoAbstractTest {
         person.setId(new MultiId("firstName0", "lastName0"));
 
         personDao.delete(person);
-        assertEquals(3, personDao.findAll().size());
+        assertEquals(4, personDao.findAll().size());
     }
 
     @Test
@@ -83,6 +87,38 @@ public abstract class PersonDaoAbstractTest {
         assertEquals(2, result.size());
         assertEquals(profession.getId(), result.get(0).getProfession().getId());
         assertEquals(profession.getId(), result.get(1).getProfession().getId());
+    }
+
+    @Test
+    public void testFindYoungerThen() throws Exception{
+        Date date = DateUtils.parseDate("1961-10-20", new String[]{"yyyy-MM-dd"});
+
+        List<Person> result = personDao.findYoungerThen(date);
+        assertEquals(2, result.size());
+    }
+
+    @Test
+    public void testFindYoungerOrEqualThen() throws Exception{
+        Date date = DateUtils.parseDate("1961-10-20", new String[]{"yyyy-MM-dd"});
+
+        List<Person> result = personDao.findYoungerOrEqualThen(date);
+        assertEquals(4, result.size());
+    }
+
+    @Test
+    public void testFindOlderThen() throws Exception{
+        Date date = DateUtils.parseDate("1961-10-20", new String[]{"yyyy-MM-dd"});
+
+        List<Person> result = personDao.findOlderThen(date);
+        assertEquals(1, result.size());
+    }
+
+    @Test
+    public void testFindOlderOrEqualThen() throws Exception{
+        Date date = DateUtils.parseDate("1961-10-20", new String[]{"yyyy-MM-dd"});
+
+        List<Person> result = personDao.findOlderOrEqualThen(date);
+        assertEquals(3, result.size());
     }
 
 }

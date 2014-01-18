@@ -4,11 +4,11 @@
     <profession id="12" name="prof3"/>
     <profession id="19" name="profFree"/>
 
-    <person first_name="firstName0" last_name="lastName0" profession_id="10" about_me="name100"/>
-    <person first_name="firstName1" last_name="lastName1" profession_id="11" about_me="name101"/>
-    <person first_name="firstName2" last_name="lastName2" profession_id="12" about_me="name102"/>
-    <person first_name="firstName3" last_name="lastName3" profession_id="12" about_me="name103"/>
-
+    <person first_name="firstName0" last_name="lastName0" profession_id="10" about_me="name100" birthdate="1960-10-20"/>
+    <person first_name="firstName1" last_name="lastName1" profession_id="11" about_me="name101" birthdate="1961-10-20"/>
+    <person first_name="firstName2" last_name="lastName2" profession_id="12" about_me="name102" birthdate="1961-10-20"/>
+    <person first_name="firstName3" last_name="lastName3" profession_id="12" about_me="name103" birthdate="1962-10-20"/>
+    <person first_name="firstName4" last_name="lastName4" profession_id="10" about_me="name104" birthdate="1963-10-20"/>
 
     <!--<car id="50" model="model0" owner_first_name="firstName0" owner_last_name="lastName0"/>-->
     <car id="50" model="model0"/>

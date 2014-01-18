@@ -4,6 +4,7 @@ import zinchenko.domain.MultiId;
 import zinchenko.domain.Person;
 import zinchenko.domain.Profession;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,5 +22,13 @@ public interface PersonDao {
     public void delete(Person person);
 
     public List<Person> findByProfession(Profession profession);
+
+    public List<Person> findYoungerThen(Date birthDate);
+
+    public List<Person> findYoungerOrEqualThen(Date birthDate);
+
+    public List<Person> findOlderThen(Date birthDate);
+
+    public List<Person> findOlderOrEqualThen(Date birthDate);
 
 }

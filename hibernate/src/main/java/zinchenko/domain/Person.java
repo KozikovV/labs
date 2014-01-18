@@ -17,8 +17,8 @@ public class Person {
     @JoinColumn(name = "PROFESSION_ID")
     private Profession profession;
 
-//    @Column(name="BIRTHDATE")
-//    private Date birthdate;
+    @Column(name="BIRTHDATE")
+    private Date birthdate;
 
     public String getAboutMe() {
         return aboutMe;
@@ -42,5 +42,13 @@ public class Person {
 
     public void setProfession(Profession profession) {
         this.profession = profession;
+    }
+
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
     }
 }

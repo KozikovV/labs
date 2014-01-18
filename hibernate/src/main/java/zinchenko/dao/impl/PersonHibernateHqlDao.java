@@ -7,6 +7,7 @@ import zinchenko.domain.Person;
 import zinchenko.domain.Profession;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,6 +48,34 @@ public class PersonHibernateHqlDao implements PersonDao {
                         "where person.profession = :profession")
                 .setParameter("profession", profession)
                 .list();
+    }
+
+    @Override
+    public List<Person> findYoungerThen(Date birthDate) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Person as p where p.birthdate > :birthdate")
+                .setDate("birthdate", birthDate).list();
+    }
+
+    @Override
+    public List<Person> findYoungerOrEqualThen(Date birthDate) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Person as p where p.birthdate >= :birthdate")
+                .setDate("birthdate", birthDate).list();
+    }
+
+    @Override
+    public List<Person> findOlderThen(Date birthDate) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Person as p where p.birthdate < :birthdate")
+                .setDate("birthdate", birthDate).list();
+    }
+
+    @Override
+    public List<Person> findOlderOrEqualThen(Date birthDate) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Person as p where p.birthdate <= :birthdate")
+                .setDate("birthdate", birthDate).list();
     }
 
     public SessionFactory getSessionFactory() {

@@ -9,6 +9,7 @@ import zinchenko.domain.MultiId;
 import zinchenko.domain.Person;
 import zinchenko.domain.Profession;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,7 +25,6 @@ public class PersonHibernateCritDao implements PersonDao {
     private SessionFactory sessionFactory;
 
     @Override
-    @Transactional
     public List<Person> findAll() {
        return sessionFactory.getCurrentSession()
                .createCriteria(Person.class).list();
@@ -37,7 +37,6 @@ public class PersonHibernateCritDao implements PersonDao {
     }
 
     @Override
-    @Transactional
     public MultiId save(Person person) {
         Session session = sessionFactory.getCurrentSession();
         return (MultiId) session.save(person);
@@ -52,6 +51,30 @@ public class PersonHibernateCritDao implements PersonDao {
     public List<Person> findByProfession(Profession profession) {
         return sessionFactory.getCurrentSession().createCriteria(Person.class)
                 .add(Restrictions.eq("profession", profession)).list();
+    }
+
+    @Override
+    public List<Person> findYoungerThen(Date birthDate) {
+        return sessionFactory.getCurrentSession().createCriteria(Person.class)
+                .add(Restrictions.gt("birthdate", birthDate)).list();
+    }
+
+    @Override
+    public List<Person> findYoungerOrEqualThen(Date birthDate) {
+        return sessionFactory.getCurrentSession().createCriteria(Person.class)
+                .add(Restrictions.ge("birthdate", birthDate)).list();
+    }
+
+    @Override
+    public List<Person> findOlderThen(Date birthDate) {
+        return sessionFactory.getCurrentSession().createCriteria(Person.class)
+                .add(Restrictions.lt("birthdate", birthDate)).list();
+    }
+
+    @Override
+    public List<Person> findOlderOrEqualThen(Date birthDate) {
+        return sessionFactory.getCurrentSession().createCriteria(Person.class)
+                .add(Restrictions.le("birthdate", birthDate)).list();
     }
 
     public SessionFactory getSessionFactory() {
