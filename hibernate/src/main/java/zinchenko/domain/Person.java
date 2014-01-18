@@ -1,5 +1,7 @@
 package zinchenko.domain;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,6 +21,13 @@ public class Person {
 
     @Column(name="BIRTHDATE")
     private Date birthdate;
+
+    @OneToOne
+    @JoinColumns({
+            @JoinColumn(name = "spouse_first_name"),
+            @JoinColumn(name = "spouse_last_name")
+    })
+    private Person spouse;
 
     public String getAboutMe() {
         return aboutMe;
@@ -50,5 +59,13 @@ public class Person {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public Person getSpouse() {
+        return spouse;
+    }
+
+    public void setSpouse(Person spouse) {
+        this.spouse = spouse;
     }
 }

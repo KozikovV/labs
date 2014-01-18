@@ -17,6 +17,8 @@ public interface PersonDao {
 
     public Person find(MultiId multiId);
 
+    public List<Person> find(List<MultiId> multiIds);
+
     public MultiId save(Person person);
 
     public void delete(Person person);
@@ -30,5 +32,7 @@ public interface PersonDao {
     public List<Person> findOlderThen(Date birthDate);
 
     public List<Person> findOlderOrEqualThen(Date birthDate);
+
+    public List<Person> findByProfessionName(String professionName);
 
 }

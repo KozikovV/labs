@@ -1,5 +1,6 @@
 package zinchenko.dao.impl;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -34,6 +35,11 @@ public class PersonHibernateCritDao implements PersonDao {
     public Person find(MultiId multiId) {
         return (Person) sessionFactory.getCurrentSession()
                 .load(Person.class, multiId);
+    }
+
+    @Override
+    public List<Person> find(List<MultiId> multiIds) {
+        return null;
     }
 
     @Override
@@ -75,6 +81,15 @@ public class PersonHibernateCritDao implements PersonDao {
     public List<Person> findOlderOrEqualThen(Date birthDate) {
         return sessionFactory.getCurrentSession().createCriteria(Person.class)
                 .add(Restrictions.le("birthdate", birthDate)).list();
+    }
+
+    @Override
+    public List<Person> findByProfessionName(String professionName) {
+        Criteria personCriteria = sessionFactory.getCurrentSession()
+                .createCriteria(Person.class);
+        Criteria professionCriteria = personCriteria.createCriteria("profession");
+        professionCriteria.add(Restrictions.eq("name", professionName));
+        return personCriteria.list();
     }
 
     public SessionFactory getSessionFactory() {

@@ -32,6 +32,14 @@ public class PersonHibernateHqlDao implements PersonDao {
     }
 
     @Override
+    public List<Person> find(List<MultiId> multiIds) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Person p where p.id = (:ids)")
+                .setParameterList("ids", multiIds)
+                .list();
+    }
+
+    @Override
     public MultiId save(Person person) {
         return (MultiId) sessionFactory.getCurrentSession().save(person);
     }
@@ -76,6 +84,13 @@ public class PersonHibernateHqlDao implements PersonDao {
         return sessionFactory.getCurrentSession()
                 .createQuery("from Person as p where p.birthdate <= :birthdate")
                 .setDate("birthdate", birthDate).list();
+    }
+
+    @Override
+    public List<Person> findByProfessionName(String professionName) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Person as p where p.profession.name = :name")
+                .setString("name", professionName).list();
     }
 
     public SessionFactory getSessionFactory() {

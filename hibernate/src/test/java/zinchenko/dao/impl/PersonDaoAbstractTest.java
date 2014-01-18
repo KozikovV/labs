@@ -4,6 +4,7 @@ import org.apache.commons.lang.time.DateFormatUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.lang.time.FastDateFormat;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import zinchenko.domain.MultiId;
 import zinchenko.domain.Person;
 import zinchenko.domain.Profession;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -120,5 +122,26 @@ public abstract class PersonDaoAbstractTest {
         List<Person> result = personDao.findOlderOrEqualThen(date);
         assertEquals(3, result.size());
     }
+
+    @Test
+    public void testFindByProfessionName(){
+        String professionName = "prof3";
+        List<Person> result = personDao.findByProfessionName(professionName);
+        assertEquals(2, result.size());
+        assertEquals((Object) 12L, result.get(0).getProfession().getId());
+        assertEquals((Object) 12L, result.get(1).getProfession().getId());
+    }
+
+    @Test
+    public void testFindWhenMultipleIds(){
+        List<MultiId> ids = new ArrayList<MultiId>();
+        ids.add(new MultiId("firstName0", "lastName0"));
+        ids.add(new MultiId("firstName1", "lastName1"));
+
+        List<Person> result = personDao.find(ids);
+
+        assertEquals(2, result.size());
+    }
+
 
 }
