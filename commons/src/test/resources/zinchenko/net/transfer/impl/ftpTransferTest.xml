@@ -3,6 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="sourceConnectInfo" class="zinchenko.net.FtpConnectInfo">
+        <property name="host" value="localhost"/>
+        <property name="port" value="7070"/>
+        <property name="password" value="password"/>
+        <property name="user" value="user"/>
+    </bean>
+
+    <bean id="destinationConnectInfo" class="zinchenko.net.FtpConnectInfo">
+        <property name="host" value="localhost"/>
+        <property name="port" value="7080"/>
+        <property name="password" value="password"/>
+        <property name="user" value="user"/>
+    </bean>
 
     <bean id="sourceFtpServer" class="org.mockftpserver.fake.FakeFtpServer">
         <property name="serverControlPort" value="7070"/>
@@ -37,7 +50,7 @@
 
 
     <bean id="destinationFtpServer" class="org.mockftpserver.fake.FakeFtpServer">
-        <property name="serverControlPort" value="7070"/>
+        <property name="serverControlPort" value="7080"/>
         <property name="systemName" value="UNIX"/>
         <property name="userAccounts">
             <list>
@@ -61,7 +74,5 @@
             </bean>
         </property>
     </bean>
-
-
 
 </beans>

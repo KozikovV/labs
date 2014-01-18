@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockftpserver.fake.FakeFtpServer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -27,11 +28,17 @@ public class FileFtpServiceTest {
     FileFtpService fileFtpService;
 
     @Autowired
-    FakeFtpServer fakeFtpServer;
+    @Qualifier("sourceFtpServer")
+    FakeFtpServer sourceFtpServer;
+
+    @Autowired
+    @Qualifier("destinationFtpServer")
+    FakeFtpServer destinationFtpServer;
 
     @Before
     public void before() throws IOException {
-        fakeFtpServer.start();
+        sourceFtpServer.start();
+        destinationFtpServer.start();
 
         fileFtpService = new FileFtpService();
         fileFtpService.setHost(HOST);
