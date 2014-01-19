@@ -17,4 +17,10 @@
     <car id="56" model="model_56"/>
     <car id="57" model="model_57"/>
     <car id="58" model="model_58"/>
+
+    <passenger_car id="100" model="model_100" passengers_Number="2"/>
+    <passenger_car id="101" model="model_101" passengers_Number="4"/>
+
+    <truck_car id="150" model="model_150" body_size="4"/>
+    <truck_car id="151" model="model_150" body_size="5"/>
 </dataset>

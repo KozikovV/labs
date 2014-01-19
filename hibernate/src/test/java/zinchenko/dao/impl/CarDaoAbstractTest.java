@@ -7,9 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import zinchenko.dao.CarDao;
-import zinchenko.domain.Car;
-import zinchenko.domain.MultiId;
-import zinchenko.domain.Person;
+import zinchenko.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +37,7 @@ public abstract class CarDaoAbstractTest {
 
     @Test
     public void testFindAll() {
-        assertEquals(7, carDao.findAll().size());
+        assertEquals(11, carDao.findAll().size());
     }
 
     @Test
@@ -69,8 +67,27 @@ public abstract class CarDaoAbstractTest {
         car.setModel("modelNew");
 
         carDao.save(car);
+        assertEquals(12, carDao.findAll().size());
+    }
 
-        assertEquals(8, carDao.findAll().size());
+    @Test
+    public void testSavePassengerCar(){
+        PassengerCar car = new PassengerCar();
+        car.setModel("modelNew");
+        car.setPassengersNumber(5);
+
+        carDao.save(car);
+        assertEquals(12, carDao.findAll().size());
+    }
+
+    @Test
+    public void testSaveTruckCar(){
+        TruckCar car = new TruckCar();
+        car.setModel("modelNew");
+        car.setBodySize(7);
+
+        carDao.save(car);
+        assertEquals(12, carDao.findAll().size());
     }
 
     @Test
@@ -79,7 +96,7 @@ public abstract class CarDaoAbstractTest {
         car.setId(50L);
 
         carDao.delete(car);
-        assertEquals(6, carDao.findAll().size());
+        assertEquals(10, carDao.findAll().size());
     }
 
     @Test

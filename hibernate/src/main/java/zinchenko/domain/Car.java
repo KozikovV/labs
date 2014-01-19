@@ -10,6 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "CAR")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Car {
 
     @Id
