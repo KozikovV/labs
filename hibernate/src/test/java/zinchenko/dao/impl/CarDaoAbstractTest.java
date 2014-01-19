@@ -11,6 +11,9 @@ import zinchenko.domain.Car;
 import zinchenko.domain.MultiId;
 import zinchenko.domain.Person;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -36,7 +39,7 @@ public abstract class CarDaoAbstractTest {
 
     @Test
     public void testFindAll() {
-        assertEquals(3, carDao.findAll().size());
+        assertEquals(7, carDao.findAll().size());
     }
 
     @Test
@@ -49,16 +52,25 @@ public abstract class CarDaoAbstractTest {
     }
 
     @Test
+    public void testFindWhenMultipleModels(){
+        List<String> models = new ArrayList<String>();
+        models.add("model_50");
+        models.add("model_52");
+
+        List<Car> result = carDao.find(models);
+        assertEquals(2, result.size());
+        assertEquals((Object) 50L, result.get(0).getId());
+        assertEquals((Object) 52L, result.get(1).getId());
+    }
+
+    @Test
     public void testSave(){
-//        Person owner = new Person();
-//        owner.setId(new MultiId("firstName0", "lastName0"));
         Car car = new Car();
         car.setModel("modelNew");
-//        car.setOwner(owner);
 
         carDao.save(car);
 
-        assertEquals(4, carDao.findAll().size());
+        assertEquals(8, carDao.findAll().size());
     }
 
     @Test
@@ -67,7 +79,19 @@ public abstract class CarDaoAbstractTest {
         car.setId(50L);
 
         carDao.delete(car);
-        assertEquals(2, carDao.findAll().size());
+        assertEquals(6, carDao.findAll().size());
+    }
+
+    @Test
+    public void testFindWithPagination(){
+        Integer from = 2;
+        Integer quantity = 3;
+
+        List<Car> result = carDao.find(from, quantity);
+        assertEquals((Object) quantity, result.size());
+        assertEquals((Object) 52L, result.get(0).getId());
+        assertEquals((Object) 55L, result.get(1).getId());
+        assertEquals((Object) 56L, result.get(2).getId());
     }
 
 }

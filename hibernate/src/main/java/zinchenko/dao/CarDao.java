@@ -10,6 +10,10 @@ public interface CarDao {
 
     public Car find(Long id);
 
+    public List<Car> find(List<String> models);
+
+    public List<Car> find(Integer from, Integer quantity);
+
     public Long save(Car car);
 
     public void delete(Car car);

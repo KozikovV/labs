@@ -26,6 +26,23 @@ public class CarHibernateHqlDao implements CarDao {
     }
 
     @Override
+    public List<Car> find(List<String> models) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Car as c where c.model in (:models)")
+                .setParameterList("models", models)
+                .list();
+    }
+
+    @Override
+    public List<Car> find(Integer from, Integer quantity) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from Car c")
+                .setFirstResult(from)
+                .setMaxResults(quantity)
+                .list();
+    }
+
+    @Override
     public Long save(Car car) {
         return (Long) sessionFactory.getCurrentSession().save(car);
     }

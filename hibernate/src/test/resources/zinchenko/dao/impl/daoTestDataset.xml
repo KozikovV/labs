@@ -10,10 +10,11 @@
     <person first_name="firstName3" last_name="lastName3" profession_id="12" about_me="about_me_103" birthdate="1962-10-20" />
     <person first_name="firstName4" last_name="lastName4" profession_id="10" about_me="about_me_104" birthdate="1963-10-20" />
 
-    <!--<car id="50" model="model0" owner_first_name="firstName0" owner_last_name="lastName0"/>-->
-    <car id="50" model="model0"/>
-    <!--<car id="51" model="model1" owner_first_name="firstName1" owner_last_name="lastName1"/>-->
-    <car id="51" model="model1"/>
-    <!--<car id="52" model="model2" owner_first_name="firstName2" owner_last_name="lastName2"/>-->
-    <car id="52" model="model2"/>
+    <car id="50" model="model_50"/>
+    <car id="51" model="model_51"/>
+    <car id="52" model="model_52"/>
+    <car id="55" model="model_55"/>
+    <car id="56" model="model_56"/>
+    <car id="57" model="model_57"/>
+    <car id="58" model="model_58"/>
 </dataset>

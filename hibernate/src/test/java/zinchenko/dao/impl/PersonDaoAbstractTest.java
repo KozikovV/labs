@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import zinchenko.dao.PersonDao;
@@ -133,6 +134,7 @@ public abstract class PersonDaoAbstractTest {
     }
 
     @Test
+    @Ignore
     public void testFindWhenMultipleIds(){
         List<MultiId> ids = new ArrayList<MultiId>();
         ids.add(new MultiId("firstName0", "lastName0"));
