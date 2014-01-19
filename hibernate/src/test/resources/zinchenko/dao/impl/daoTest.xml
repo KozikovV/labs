@@ -3,11 +3,21 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--<import resource="/hibernateTest.xml"/>-->
+
     <bean id="personHibernateCritDao" class="zinchenko.dao.impl.PersonHibernateCritDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
     <bean id="personHibernateHqlDao" class="zinchenko.dao.impl.PersonHibernateHqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="personHibernateSqlDao" class="zinchenko.dao.impl.PersonHibernateSqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="personJdbcDao" class="zinchenko.dao.impl.PersonJdbcDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
@@ -19,11 +29,27 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="carHibernateSqlDao" class="zinchenko.dao.impl.CarHibernateSqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="carJdbcDao" class="zinchenko.dao.impl.CarJdbcDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
     <bean id="professionHibCritDao" class="zinchenko.dao.impl.ProfessionHibCritDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
     <bean id="professionHibHqlDao" class="zinchenko.dao.impl.ProfessionHibHqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="professionHibSqlDao" class="zinchenko.dao.impl.ProfessionHibSqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="professionJdbcDao" class="zinchenko.dao.impl.ProfessionJdbcDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
