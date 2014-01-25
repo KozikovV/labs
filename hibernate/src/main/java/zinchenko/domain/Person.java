@@ -7,6 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "PERSON")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person {
 
     @EmbeddedId
