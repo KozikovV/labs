@@ -29,4 +29,9 @@
 
     <truck_car id="150" model="model_150" body_size="4"/>
     <truck_car id="151" model="model_150" body_size="5"/>
+
+    <house house_id="200" location="Location_200" discriminator="F" have_garage="true"/>
+    <house house_id="201" location="Location_201" discriminator="F" have_garage="true"/>
+    <house house_id="202" location="Location_202" discriminator="C" yard_size="22"/>
+    <house house_id="203" location="Location_203" discriminator="C" yard_size="23"/>
 </dataset>
