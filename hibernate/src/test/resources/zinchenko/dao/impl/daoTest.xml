@@ -53,4 +53,20 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="houseHibCritDao" class="zinchenko.dao.impl.HouseHibCritDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="houseHibHqlDao" class="zinchenko.dao.impl.HouseHibHqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="houseHibSqlDao" class="zinchenko.dao.impl.HouseHibSqlDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="houseJdbcDao" class="zinchenko.dao.impl.HouseJdbcDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
 </beans>
