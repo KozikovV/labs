@@ -15,7 +15,12 @@ public class ProfessionHibSqlDao implements ProfessionDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public List<Profession> findAll() {
+    public List<Profession> findAllGetCurrentSes() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public List<Profession> findAllOpenSes() {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -32,6 +37,11 @@ public class ProfessionHibSqlDao implements ProfessionDao {
     @Override
     public void delete(Profession profession) {
         //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public Long saveWithInterceptor(Profession profession) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public SessionFactory getSessionFactory() {

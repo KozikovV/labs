@@ -7,12 +7,16 @@ import java.util.List;
 
 public interface ProfessionDao {
 
-    public List<Profession> findAll();
+    public List<Profession> findAllGetCurrentSes();
+
+    public List<Profession> findAllOpenSes();
 
     public Profession find(Long id);
 
     public Long save(Profession profession);
 
     public void delete(Profession profession);
+
+    public Long saveWithInterceptor(Profession profession);
 
 }

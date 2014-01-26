@@ -12,11 +12,16 @@ public class ProfessionHibHqlDao implements ProfessionDao{
     protected SessionFactory sessionFactory;
 
     @Override
-    public List<Profession> findAll() {
+    public List<Profession> findAllGetCurrentSes() {
         return sessionFactory
                 .getCurrentSession()
                 .createQuery("from Profession as profession")
                 .list();
+    }
+
+    @Override
+    public List<Profession> findAllOpenSes() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
@@ -35,6 +40,11 @@ public class ProfessionHibHqlDao implements ProfessionDao{
     @Override
     public void delete(Profession profession) {
         sessionFactory.getCurrentSession().delete(profession);
+    }
+
+    @Override
+    public Long saveWithInterceptor(Profession profession) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public SessionFactory getSessionFactory() {

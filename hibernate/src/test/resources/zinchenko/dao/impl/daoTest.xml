@@ -5,6 +5,10 @@
 
     <!--<import resource="/hibernateTest.xml"/>-->
 
+    <bean id="professionInterceptor" class="zinchenko.interceptors.ProfessionInterceptor">
+
+    </bean>
+
     <bean id="personHibernateCritDao" class="zinchenko.dao.impl.PersonHibernateCritDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
@@ -39,18 +43,17 @@
 
     <bean id="professionHibCritDao" class="zinchenko.dao.impl.ProfessionHibCritDao">
         <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="professionInterceptor" ref="professionInterceptor"/>
     </bean>
 
     <bean id="professionHibHqlDao" class="zinchenko.dao.impl.ProfessionHibHqlDao">
         <property name="sessionFactory" ref="sessionFactory"/>
+        <!--<property name="professionInterceptor" ref="professionInterceptor"/>-->
     </bean>
 
     <bean id="professionHibSqlDao" class="zinchenko.dao.impl.ProfessionHibSqlDao">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean id="professionJdbcDao" class="zinchenko.dao.impl.ProfessionJdbcDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
+        <!--<property name="professionInterceptor" ref="professionInterceptor"/>-->
     </bean>
 
     <bean id="houseHibCritDao" class="zinchenko.dao.impl.HouseHibCritDao">
