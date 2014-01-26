@@ -5,7 +5,7 @@
 
     <!--<import resource="/hibernateTest.xml"/>-->
 
-    <bean id="professionInterceptor" class="zinchenko.interceptors.ProfessionInterceptor">
+    <bean id="professionInterceptor" class="zinchenko.configs.ProfessionInterceptor">
 
     </bean>
 

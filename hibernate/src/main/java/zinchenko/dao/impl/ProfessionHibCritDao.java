@@ -75,6 +75,11 @@ public class ProfessionHibCritDao implements ProfessionDao {
         return 0L;
     }
 
+    @Override
+    public Profession load(Long id) {
+        return (Profession) sessionFactory.getCurrentSession().load(Profession.class, id);
+    }
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }

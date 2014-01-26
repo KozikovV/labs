@@ -47,6 +47,11 @@ public class ProfessionHibHqlDao implements ProfessionDao{
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    @Override
+    public Profession load(Long id) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }

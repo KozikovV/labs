@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import zinchenko.dao.ProfessionDao;
 import zinchenko.domain.Profession;
-import zinchenko.interceptors.ProfessionInterceptor;
 
 import java.text.MessageFormat;
 
@@ -121,6 +120,9 @@ public abstract class ProfessionAbstractTest {
         assertEquals(5, professionDao.findAllGetCurrentSes().size());
     }
 
-
+    @Test
+    public void testLoad(){
+        professionDao.load(10L);
+    }
 
 }

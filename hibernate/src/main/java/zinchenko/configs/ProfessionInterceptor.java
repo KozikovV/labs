@@ -1,10 +1,9 @@
-package zinchenko.interceptors;
+package zinchenko.configs;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.EmptyInterceptor;
 import org.hibernate.type.Type;
-import zinchenko.domain.Profession;
 
 import java.io.Serializable;
 import java.text.MessageFormat;

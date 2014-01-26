@@ -19,4 +19,6 @@ public interface ProfessionDao {
 
     public Long saveWithInterceptor(Profession profession);
 
+    public Profession load(Long id);
+
 }
