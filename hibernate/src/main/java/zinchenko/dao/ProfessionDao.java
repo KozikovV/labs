@@ -15,6 +15,10 @@ public interface ProfessionDao {
 
     public Long save(Profession profession);
 
+    public void saveBatchNaive(List<Profession> professions);
+
+    public void saveBatch(List<Profession> professions);
+
     public void delete(Profession profession);
 
     public Long saveWithInterceptor(Profession profession);

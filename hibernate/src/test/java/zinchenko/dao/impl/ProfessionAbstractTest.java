@@ -13,13 +13,15 @@ import zinchenko.dao.ProfessionDao;
 import zinchenko.domain.Profession;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public abstract class ProfessionAbstractTest {
 
-    public static final int LOOP_SIZE = 10;
+    public static final int LOOP_SIZE = 1000000;
 
     private static final Log LOG = LogFactory.getLog(ProfessionAbstractTest.class);
 
@@ -138,8 +140,17 @@ public abstract class ProfessionAbstractTest {
         }catch (Exception e){
             LOG.error(e);
         }
+    }
 
-
+    @Test
+    public void testSaveBatchNaive(){
+        List<Profession> professions = new ArrayList<Profession>();
+        for (int i = 0; i < 100000; i++) {
+            Profession profession = new Profession();
+            profession.setName("name_name_name_name_name_name_name_" + i);
+            professions.add(profession);
+        }
+        professionDao.saveBatchNaive(professions);
     }
 
 }

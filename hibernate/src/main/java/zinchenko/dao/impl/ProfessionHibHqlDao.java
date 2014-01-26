@@ -38,6 +38,16 @@ public class ProfessionHibHqlDao implements ProfessionDao{
     }
 
     @Override
+    public void saveBatchNaive(List<Profession> professions) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void saveBatch(List<Profession> professions) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
     public void delete(Profession profession) {
         sessionFactory.getCurrentSession().delete(profession);
     }
