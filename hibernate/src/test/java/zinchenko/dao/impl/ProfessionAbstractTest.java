@@ -19,7 +19,7 @@ import static org.junit.Assert.assertNotNull;
 
 public abstract class ProfessionAbstractTest {
 
-    public static final int LOOP_SIZE = 10000;
+    public static final int LOOP_SIZE = 10;
 
     private static final Log LOG = LogFactory.getLog(ProfessionAbstractTest.class);
 
@@ -123,6 +123,23 @@ public abstract class ProfessionAbstractTest {
     @Test
     public void testLoad(){
         professionDao.load(10L);
+    }
+
+    @Test
+    public void testSaveBatch(){
+        try{
+            for (int i = 0; i < LOOP_SIZE; i++) {
+                Profession profession = new Profession();
+                profession.setName("name_" + i);
+                professionDao.save(profession);
+            }
+            int quantity = professionDao.findAllGetCurrentSes().size();
+            assertEquals("Quantity of professions = " + quantity, LOOP_SIZE+4, quantity);
+        }catch (Exception e){
+            LOG.error(e);
+        }
+
+
     }
 
 }
