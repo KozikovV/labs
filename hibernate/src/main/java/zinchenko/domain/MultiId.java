@@ -8,7 +8,7 @@ import java.io.Serializable;
  * User: zinchenko
  * Date: 13.01.14
  */
-@Embeddable
+//@Embeddable
 public class MultiId implements Serializable{
 
     @Column(name = "FIRST_NAME")

@@ -1,14 +1,16 @@
 package zinchenko.domain;
 
-import org.hibernate.annotations.Generated;
-
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 /**
  * User: zinchenko
  * Date: 13.01.14
  */
-@Entity
+//@Entity
 @Table(name = "CAR")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Car {
