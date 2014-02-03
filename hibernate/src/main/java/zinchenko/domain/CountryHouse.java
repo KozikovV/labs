@@ -2,14 +2,13 @@ package zinchenko.domain;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
  * User: zinchenko
  * Date: 25.01.14
  */
-@Entity
+//@Entity
 @Table(name = "COUNTRY_HOUSE")
 @DiscriminatorValue(value = "C")
 public class CountryHouse extends House {

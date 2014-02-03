@@ -6,7 +6,7 @@ import javax.persistence.*;
  * User: zinchenko
  * Date: 25.01.14
  */
-@Entity
+//@Entity
 @Table(name = "HOUSE")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "DISCRIMINATOR",

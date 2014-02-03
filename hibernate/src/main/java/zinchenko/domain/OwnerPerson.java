@@ -7,7 +7,7 @@ import javax.persistence.*;
  * Date: 25.01.14
  */
 
-@Entity
+//@Entity
 @Table(name = "OWNER_PERSON")
 @PrimaryKeyJoinColumns(value = {
         @PrimaryKeyJoinColumn(name = "FIRST_NAME"),

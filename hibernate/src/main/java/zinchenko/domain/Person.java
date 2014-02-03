@@ -1,11 +1,17 @@
 package zinchenko.domain;
 
-import com.sun.istack.internal.NotNull;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.util.Date;
 
-@Entity
+//@Entity
 @Table(name = "PERSON")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Person {

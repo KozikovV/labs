@@ -6,7 +6,7 @@ import javax.persistence.*;
  * User: zinchenko
  * Date: 19.01.14
  */
-@Entity
+//@Entity
 @Table(name = "EMPLOYEE_PERSON")
 @PrimaryKeyJoinColumns(value = {
         @PrimaryKeyJoinColumn(name = "FIRST_NAME"),

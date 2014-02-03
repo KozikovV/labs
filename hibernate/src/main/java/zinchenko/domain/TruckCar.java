@@ -6,7 +6,7 @@ import javax.persistence.*;
  * User: zinchenko
  * Date: 19.01.14
  */
-@Entity
+//@Entity
 @Table(name="TRUCK_CAR")
 public class TruckCar extends Car{
 
