@@ -10,6 +10,8 @@ import zinchenko.usingbeans.PersonRate;
 public class DependencyServiceImpl implements DependencyService {
     @Override
     public PersonRate getPersonRateByPersonId(Long id) {
+        //    http://stackoverflow.com/questions/12306211/not-getting-http-response-body-when-using-camel-producertemplate-and-http
+
         return ;
     }
 }
