@@ -41,6 +41,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
                 <!--<prop key="hibernate.dialect">zinchenko.CustomPostgreDialect</prop>-->
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
             </props>
         </property>
     </bean>

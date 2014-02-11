@@ -21,7 +21,7 @@ import static org.junit.Assert.assertNotNull;
 
 public abstract class ProfessionAbstractTest {
 
-    public static final int LOOP_SIZE = 1000000;
+    public static final int LOOP_SIZE = 100;
 
     private static final Log LOG = LogFactory.getLog(ProfessionAbstractTest.class);
 
@@ -128,7 +128,7 @@ public abstract class ProfessionAbstractTest {
     }
 
     @Test
-    public void testSaveBatch(){
+    public void testSaveBatchBAD(){
         try{
             for (int i = 0; i < LOOP_SIZE; i++) {
                 Profession profession = new Profession();
@@ -145,12 +145,23 @@ public abstract class ProfessionAbstractTest {
     @Test
     public void testSaveBatchNaive(){
         List<Profession> professions = new ArrayList<Profession>();
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < LOOP_SIZE; i++) {
             Profession profession = new Profession();
             profession.setName("name_name_name_name_name_name_name_" + i);
             professions.add(profession);
         }
         professionDao.saveBatchNaive(professions);
+    }
+
+    @Test
+    public void testSaveBatch(){
+        List<Profession> professions = new ArrayList<Profession>();
+        for (int i = 0; i < LOOP_SIZE; i++) {
+            Profession profession = new Profession();
+            profession.setName("name_name_name_name_name_name_name_" + i);
+            professions.add(profession);
+        }
+        professionDao.saveBatch(professions);
     }
 
 }

@@ -6,7 +6,6 @@ import org.hibernate.Interceptor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import zinchenko.dao.ProfessionDao;
-import zinchenko.domain.Car;
 import zinchenko.domain.Profession;
 
 import java.util.List;
@@ -61,7 +60,16 @@ public class ProfessionHibCritDao implements ProfessionDao {
 
     @Override
     public void saveBatch(List<Profession> professions) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        Session session = sessionFactory.getCurrentSession();
+        int i = 0;
+        for(Profession profession : professions) {
+            session.save(profession);
+            i++;
+            if (i % 20 == 0) {
+                session.flush();
+                session.clear();
+            }
+        }
     }
 
     @Override
@@ -91,6 +99,11 @@ public class ProfessionHibCritDao implements ProfessionDao {
     @Override
     public Profession load(Long id) {
         return (Profession) sessionFactory.getCurrentSession().load(Profession.class, id);
+    }
+
+    @Override
+    public void growUpAllLevels() {
+
     }
 
     public SessionFactory getSessionFactory() {

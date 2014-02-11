@@ -1,8 +1,8 @@
 <dataset>
-    <profession id="10000000" name="prof1"/>
-    <profession id="11000000" name="prof2"/>
-    <profession id="12000000" name="prof3"/>
-    <profession id="19000000" name="profFree"/>
+    <profession id="10000000" name="prof1" level="level_10"/>
+    <profession id="11000000" name="prof2" level="level_11"/>
+    <profession id="12000000" name="prof3" level="level_12"/>
+    <profession id="19000000" name="profFree" level="level_19"/>
 
     <!--<person first_name="firstName0" last_name="lastName0" profession_id="10000000" about_me="about_me_100" birthdate="1960-10-20" />-->
     <!--<person first_name="firstName1" last_name="lastName1" profession_id="11000000" about_me="about_me_101" birthdate="1961-10-20" />-->

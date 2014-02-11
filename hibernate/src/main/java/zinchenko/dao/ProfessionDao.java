@@ -1,6 +1,5 @@
 package zinchenko.dao;
 
-import zinchenko.domain.Car;
 import zinchenko.domain.Profession;
 
 import java.util.List;
@@ -24,5 +23,7 @@ public interface ProfessionDao {
     public Long saveWithInterceptor(Profession profession);
 
     public Profession load(Long id);
+
+    public void growUpAllLevels();
 
 }

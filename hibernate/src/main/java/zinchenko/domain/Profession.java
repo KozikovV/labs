@@ -18,6 +18,9 @@ public class Profession {
     @Column(name="NAME")
     private String name;
 
+    @Column(name = "LEVEL")
+    private String level;
+
     public Long getId() {
         return id;
     }
@@ -77,5 +80,12 @@ public class Profession {
         return true;
     }
 
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
 }
 
