@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+    ">
+
+    <bean id="seviceBean" class="zinchenko.jms.ServiceBean"></bean>
+
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <!--<template id="template"/>-->
+        <route>
+            <from uri="jms:SAMPLEQUEUE"/>
+            <bean ref="seviceBean" method="process"/>
+        </route>
+    </camelContext>
+
+    <bean id="jms" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+
+</beans>

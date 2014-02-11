@@ -12,6 +12,6 @@ public class DependencyServiceImpl implements DependencyService {
     public PersonRate getPersonRateByPersonId(Long id) {
         //    http://stackoverflow.com/questions/12306211/not-getting-http-response-body-when-using-camel-producertemplate-and-http
 
-        return ;
+        return null;
     }
 }

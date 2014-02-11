@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import zinchenko.usingbeans.domains.Bean;
+import zinchenko.usingbeans.domains.*;
 
 /**
  * User: zinchenko
