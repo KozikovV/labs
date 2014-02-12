@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manager>
+
+    <!-- this example Messenger XML config file should work with J2EE SDK -->
+
+    <!--<messenger name="topic">-->
+        <!--<jndi lookupName="TopicConnectionFactory">-->
+            <!--<property>-->
+                <!--<name>com.sun.jms.internal.java.naming.factory.initial</name>-->
+                <!--<value>com.sun.enterprise.naming.SerialInitContextFactory</value>-->
+            <!--</property>-->
+        <!--</jndi>-->
+    <!--</messenger>-->
+
+    <messenger name="queue">
+        <jndi lookupName="QueueConnectionFactory">
+            <property>
+                <name>com.sun.jms.internal.java.naming.factory.initial</name>
+                <value>com.sun.enterprise.naming.SerialInitContextFactory</value>
+            </property>
+        </jndi>
+    </messenger>
+
+</manager>
