@@ -33,7 +33,8 @@ public class OrderSender {
 
     public Order receive(){
         Message message = jmsTemplate.receive();
-        message.g
+//        message.g
+        return null;
     }
 
 }
