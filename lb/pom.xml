@@ -11,7 +11,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
 
@@ -66,26 +66,76 @@
         </dependency>
 
 
+
+        <dependency>
+            <groupId>com.restfuse</groupId>
+            <artifactId>com.eclipsesource.restfuse</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+
+        <!--        <dependency>
+                    &lt;!&ndash; Use junit-dep - instead of junit - which does not include hamcrest
+                         since otherwise it leads to method-not-found collisions with the
+                         rest-assured library. &ndash;&gt;
+                    <groupId>junit</groupId>
+                    <artifactId>junit-dep</artifactId>
+                    <version>4.10</version>
+                    <scope>test</scope>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.hamcrest</groupId>
+                            <artifactId>hamcrest-core</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-bundle</artifactId>
+                    <version>1.6</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.jayway.restassured</groupId>
+                    <artifactId>rest-assured</artifactId>
+                    <version>1.6.1</version>
+                    <scope>test</scope>
+                </dependency>
+                &lt;!&ndash; Include this dependency to run tests inside the IntelliJ IDE.
+                     Maven picks it up from matterhorn-common dependencies. &ndash;&gt;
+                <dependency>
+                  <groupId>org.apache.httpcomponents</groupId>
+                  <artifactId>httpcore</artifactId>
+                  <version>4.1.4</version>
+                  <scope>test</scope>
+                </dependency>-->
+
+
+
+
+
+
+
     </dependencies>
     <build>
         <finalName>lb</finalName>
-            <plugins>
+<!--            <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>2.3</version>
                     <configuration>
                         <warName>test</warName>
-                        <webResources>
-                            <resource>
-                                <!--<filtering>true</filtering>-->
-                                <directory>src/main/webapp</directory>
-                                <includes>
-                                    <include>**/*.css</include>
-                                    <!-- include any other file types you want to filter -->
-                                </includes>
-                            </resource>
-                        </webResources>
+                        &lt;!&ndash;<webResources>&ndash;&gt;
+                            &lt;!&ndash;<resource>&ndash;&gt;
+                                &lt;!&ndash;&lt;!&ndash;<filtering>true</filtering>&ndash;&gt;&ndash;&gt;
+                                &lt;!&ndash;<directory>src/main/webapp</directory>&ndash;&gt;
+                                &lt;!&ndash;<includes>&ndash;&gt;
+                                    &lt;!&ndash;<include>**/*.css</include>&ndash;&gt;
+                                    &lt;!&ndash;&lt;!&ndash; include any other file types you want to filter &ndash;&gt;&ndash;&gt;
+                                &lt;!&ndash;</includes>&ndash;&gt;
+                            &lt;!&ndash;</resource>&ndash;&gt;
+                        &lt;!&ndash;</webResources>&ndash;&gt;
                     </configuration>
                     <executions>
                         <execution>
@@ -128,6 +178,6 @@
                         </execution>
                     </executions>
                 </plugin>
-            </plugins>
+            </plugins>-->
     </build>
 </project>

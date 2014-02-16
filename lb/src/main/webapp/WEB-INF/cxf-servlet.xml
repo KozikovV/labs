@@ -15,9 +15,9 @@
         <jaxrs:serviceBeans>
             <bean class="zinchenko.OrderInfoImpl" />
         </jaxrs:serviceBeans>
-        <!--<jaxrs:providers>-->
-            <!--<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />-->
-        <!--</jaxrs:providers>-->
+        <jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+        </jaxrs:providers>
     </jaxrs:server>
 </beans>
 
