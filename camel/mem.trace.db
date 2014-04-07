@@ -1,0 +1,28 @@
+04-05 19:29:57 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "DATASOURCE[*] "; ожидалось "DELETE, DROP, DECLARE, DEALLOCATE, {"
+Syntax error in SQL statement "DATASOURCE[*] "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+dataSource [42001-170]
+04-05 19:35:40 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "DATASOURCE[*] "; ожидалось "DELETE, DROP, DECLARE, DEALLOCATE, {"
+Syntax error in SQL statement "DATASOURCE[*] "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+dataSource [42001-170]
+04-05 19:36:19 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "DATASOURCE[*] "; ожидалось "DELETE, DROP, DECLARE, DEALLOCATE, {"
+Syntax error in SQL statement "DATASOURCE[*] "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+dataSource [42001-170]
+04-05 19:49:15 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "DATASOURCE[*] "; ожидалось "DELETE, DROP, DECLARE, DEALLOCATE, {"
+Syntax error in SQL statement "DATASOURCE[*] "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+dataSource [42001-170]
+04-05 20:02:45 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "PARTNER_METRIC" уже существует
+Table "PARTNER_METRIC" already exists; SQL statement:
+create table partner_metric ( partner_id varchar(10), time_occurred varchar(20), status_code varchar(3), perf_time varchar(10) ) [42101-170]
+04-05 20:04:35 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "PARTNER_METRIC" уже существует
+Table "PARTNER_METRIC" already exists; SQL statement:
+create table partner_metric ( partner_id varchar(10), time_occurred varchar(20), status_code varchar(3), perf_time varchar(10) ) [42101-170]
+04-05 20:05:47 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "PARTNER_METRIC" уже существует
+Table "PARTNER_METRIC" already exists; SQL statement:
+create table partner_metric ( partner_id varchar(10), time_occurred varchar(20), status_code varchar(3), perf_time varchar(10) ) [42101-170]
