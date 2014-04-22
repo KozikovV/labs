@@ -3,6 +3,9 @@ Category {{category.id}} - {{category.name}}
     {{category.description}}
 </div>
 <div>
+    <a href="#/createTest/{{category.id}}">add test</a>
+</div>
+<div>
     <ul>
         <li ng-repeat="test in category.tests">
             {{test.id}} - {{test.name}} -

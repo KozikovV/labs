@@ -26,10 +26,29 @@ controllers.controller('TaskCtrl',
             }
             $scope.check = function () {
                 console.log($scope.answer);
-                if($scope.task.answer === $scope.answer){
+                if ($scope.task.answer === $scope.answer) {
                     $scope.answerResult = 'right';
                 } else {
                     $scope.answerResult = 'wrong';
                 }
             }
-        }])
+        }]);
+
+controllers.controller('CreateTestCtrl',
+    ['$scope', 'Category', '$routeParams',
+        function ($scope, Category, $routeParams) {
+            console.log('CreateTestCtrl');
+            $scope.category = Category.get({id: $routeParams.categoryId});
+            $scope.test = $scope.test || {};
+            $scope.test.category = $scope.test.category || {};
+//            $scope.test.category.id = $scope.test.category.id || $scope.category.id;
+            $scope.save = function () {
+                $scope.test.category.id = $scope.test.category.id || $scope.category.id;
+                console.log($scope.test);
+            }
+            $scope.addTask = function () {
+                console.log('addTask');
+                $scope.test.tasks = $scope.test.tasks || [];
+                $scope.test.tasks.push({});
+            }
+        }]);

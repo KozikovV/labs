@@ -1,0 +1,20 @@
+<div>
+    create test in category '{{category.name}}'
+</div>
+<div>
+    <!--<input type="text" ng-model="test.category.id" ng-value="category.id">-->
+    Name: <input type="text" ng-model="test.name">
+    <br/>
+    Description: <input type="text" ng-model="test.description"/>
+    <br/>
+    <button ng-click="save()">Save</button>
+    <br/>
+
+    <div ng-repeat="task in test.tasks">
+        Question: <input ng-model="task.question"> <br/>
+        Answer: <input ng-model="task.answer"><br/>
+    </div><br/><br/>
+
+    <button ng-click="addTask()">add task</button>
+
+</div>
