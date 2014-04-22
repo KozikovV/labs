@@ -26,11 +26,11 @@
           class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="brokerURL" value="tcp://localhost:61616"/>
     </bean>
-    <broker:broker useJmx="false" persistent="false" brokerName="localhost">
-        <broker:transportConnectors>
-            <broker:transportConnector uri="tcp://localhost:61616"/>
-        </broker:transportConnectors>
-    </broker:broker>
+    <!--<broker:broker useJmx="false" persistent="false" brokerName="localhost">-->
+        <!--<broker:transportConnectors>-->
+            <!--<broker:transportConnector uri="tcp://localhost:61616"/>-->
+        <!--</broker:transportConnectors>-->
+    <!--</broker:broker>-->
     <bean id="myDataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.h2.Driver"/>

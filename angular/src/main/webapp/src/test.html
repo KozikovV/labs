@@ -1,0 +1,21 @@
+Test {{test.id}} - {{test.name}}
+<div class="tasks">
+    <div ng-repeat="task in test.tasks">
+        <div ng-controller="TaskCtrl" ng-init="init(task)">
+            {{task.id}} - Question: {{task.question}}
+            <input type="text" ng-model="answer">
+            <a href="" ng-click="check()">check</a>
+            <div ng-show="answerResult === 'right'">
+                You are right! :)
+            </div>
+            <div ng-show="answerResult === 'wrong'">
+                You are wrong! :(
+            </div>
+            <div class="comments">
+                <div class="comment" ng-repeat="comment in task.taskComments">
+                    {{comment.content}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

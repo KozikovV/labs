@@ -1,0 +1,23 @@
+<span>List</span>
+<div class="list">
+    <ul>
+        <li ng-repeat="category in categories">
+            <div ng-include="'category.html'"></div>
+        </li>
+    </ul>
+</div>
+
+<script type="text/ng-template" id="category.html">
+    Category - {{category.id}} - {{category.name}} -
+    <a href="#/category/{{category.id}}">view</a>
+    <ul>
+        <li ng-repeat="category in category.categories">
+            <div ng-include="'category.html'"></div>
+        </li>
+    </ul>
+    <!--<ul>-->
+        <!--<li ng-repeat="test in category.tests">-->
+            <!--<div>Test - {{test.id}} - {{test.name}} - <a href="#/test/{{test.id}}">view</a></div>-->
+        <!--</li>-->
+    <!--</ul>-->
+</script>

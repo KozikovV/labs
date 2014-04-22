@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:spring="http://camel.apache.org/schema/spring"
+       xmlns:broker="http://activemq.apache.org/schema/core" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://activemq.apache.org/schema/core
+       http://activemq.apache.org/schema/core/activemq-core.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <tx:annotation-driven/>
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
+        <!--<property name="sessionFactory" ref="sessionFactory" />-->
+    <!--</bean>-->
+
+    <context:component-scan base-package="zinchenko.transaction.oneOrchestrated"/>
+
+    <bean id="activemq"
+          class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="transacted" value="true"/>
+        <!--<property name="brokerURL" value="tcp://localhost:61616"/>-->
+        <property name="transactionManager" ref="txManager"/>
+    </bean>
+    <!-- the transaction manager which is a Spring JMS TransactionManager -->
+    <bean id="txManager" class="org.springframework.jms.connection.JmsTransactionManager">
+        <!-- must know how to connect to the JMS Broker so refer to a connection factory -->
+        <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    </bean>
+
+    <bean id="connectionFactoryBean"
+          class="com.atomikos.jms.AtomikosConnectionFactoryBean"
+          init-method="init"
+          destroy-method="close">
+        <property name="uniqueResourceName" value="QUEUE_BROCKER"/>
+        <property name="xaConnectionFactory" ref ="xaFactory"/>
+    </bean>
+    <bean id="xaFactory" class="org.apache.activemq.ActiveMQXAConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+    <!-- Is the ConnectionFactory to connect to the JMS broker -->
+    <!--<bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">-->
+        <!--<property name="brokerURL" value="tcp://localhost:61616"/>-->
+    <!--</bean>-->
+    <!--<broker:broker useJmx="false" persistent="false" brokerName="localhost">-->
+        <!--<broker:transportConnectors>-->
+            <!--<broker:transportConnector uri="tcp://localhost:61616"/>-->
+        <!--</broker:transportConnectors>-->
+    <!--</broker:broker>-->
+
+    <bean id="re" class="java.lang.RuntimeException"/>
+
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <route id="orderRoute">
+            <from uri="activemq:queue:order"/>
+            <transacted/>
+            <!--<throwException ref="re"/>-->
+            <bean ref="transformService" method="transform"/>
+            <bean ref="orderDao" method="save"/>
+        </route>
+    </camelContext>
+
+    <bean id="dataSource"
+          class="com.atomikos.jdbc.AtomikosDataSourceBean"
+          init-method="init"
+          destroy-method="close">
+        <property name="uniqueResourceName" value="EIS1DBMS"/>
+        <property name="xaDataSourceClassName" value="org.h2.Driver"/>
+        <property name="xaProperties">
+            <props>
+                <prop key="URL">jdbc:h2:tcp://localhost/~/order</prop>
+                <prop key="user">test</prop>
+                <prop key="password"></prop>
+            </props>
+        </property>
+        <property name="poolSize" value="10"/>
+        <!--<property name="testQuery" value="${jdbc.oracle.testQuery}"/>-->
+    </bean>
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
+          <!--destroy-method="close">-->
+        <!--<property name="driverClassName" value="org.h2.Driver" />-->
+        <!--<property name="url" value="jdbc:h2:tcp://localhost/~/order" />-->
+        <!--<property name="username" value="test" />-->
+        <!--<property name="password" value="" />-->
+    <!--</bean>-->
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <!--<property name="annotatedPackages" value="zinchenko."/>-->
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="zinchenko.transaction.oneOrchestrated.bean"/>
+        <!--<property name="configLocation" value="/"/>-->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
+                <prop key="show_sql">true</prop>
+                <prop key="format_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+
+</beans>

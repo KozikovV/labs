@@ -1,0 +1,12 @@
+Category {{category.id}} - {{category.name}}
+<div>
+    {{category.description}}
+</div>
+<div>
+    <ul>
+        <li ng-repeat="test in category.tests">
+            {{test.id}} - {{test.name}} -
+            <a href="#/test/{{test.id}}">view</a>
+        </li>
+    </ul>
+</div>
