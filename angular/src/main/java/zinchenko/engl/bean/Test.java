@@ -2,8 +2,12 @@ package zinchenko.engl.bean;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonManagedReference;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 
 @Entity
@@ -12,6 +16,8 @@ public class Test {
 
     @Id
     @Column(name = "test_id")
+    @GeneratedValue(generator = "test_seq", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "test_seq", sequenceName = "test_seq")
     private Long id;
 
     @Column(name = "name")
@@ -22,6 +28,7 @@ public class Test {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "test", fetch = FetchType.EAGER)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private List<Task> tasks;
 
     @JsonBackReference

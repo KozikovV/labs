@@ -10,6 +10,7 @@ Category {{category.id}} - {{category.name}}
         <li ng-repeat="test in category.tests">
             {{test.id}} - {{test.name}} -
             <a href="#/test/{{test.id}}">view</a>
+            <a href="#/test/{{test.id}}/update">update</a>
         </li>
     </ul>
 </div>

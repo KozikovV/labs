@@ -35,8 +35,8 @@ controllers.controller('TaskCtrl',
         }]);
 
 controllers.controller('CreateTestCtrl',
-    ['$scope', 'Category', '$routeParams',
-        function ($scope, Category, $routeParams) {
+    ['$scope', 'Category', 'Test', '$routeParams',
+        function ($scope, Category, Test, $routeParams) {
             console.log('CreateTestCtrl');
             $scope.category = Category.get({id: $routeParams.categoryId});
             $scope.test = $scope.test || {};
@@ -45,10 +45,19 @@ controllers.controller('CreateTestCtrl',
             $scope.save = function () {
                 $scope.test.category.id = $scope.test.category.id || $scope.category.id;
                 console.log($scope.test);
+                Test.save($scope.test, function(test){
+                    console.log(test);
+                });
             }
             $scope.addTask = function () {
                 console.log('addTask');
                 $scope.test.tasks = $scope.test.tasks || [];
                 $scope.test.tasks.push({});
             }
+        }]);
+
+controllers.controller('UpdateTestCtrl',
+    ['$scope', 'Test', '$routeParams',
+        function($scope, Test, $routeParams){
+            $scope.test = Test.get({id: $routeParams.testId});
         }]);

@@ -19,6 +19,10 @@ myApp.config(['$routeProvider',
                 templateUrl: 'src/createTest.html',
                 controller: 'CreateTestCtrl'
             })
+            .when('/test/:testId/update', {
+                templateUrl: 'src/createTest.html',
+                controller: 'UpdateTestCtrl'
+            })
             .otherwise({
                 redirectTo: '/list'
             });

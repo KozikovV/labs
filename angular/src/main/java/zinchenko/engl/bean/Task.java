@@ -24,7 +24,7 @@ public class Task {
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "test_id", nullable = false)
+    @JoinColumn(name = "test_id")
     private Test test;
 
     @JsonManagedReference

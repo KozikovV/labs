@@ -20,6 +20,12 @@ public class TestDaoImpl implements TestDao{
                 .setLong("id", id).uniqueResult();
     }
 
+    @Override
+    public Test save(Test test) {
+        sessionFactory.getCurrentSession().saveOrUpdate(test);
+        return test;
+    }
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
