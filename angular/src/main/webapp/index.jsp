@@ -10,10 +10,15 @@
     <script src="/src/app.js"></script>
     <script src="/src/controllers.js"></script>
     <script src="/src/services.js"></script>
+
+    <link href="styles/style.css" type="text/css" rel="stylesheet">
+    <link href="styles/bootstrap.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 
-<div ng-view></div>
+<div class="main-content">
+    <div ng-view>fdh</div>
+</div>
 
 </body>
 </html>
