@@ -61,3 +61,30 @@ controllers.controller('UpdateTestCtrl',
         function($scope, Test, $routeParams){
             $scope.test = Test.get({id: $routeParams.testId});
         }]);
+
+controllers.controller('CreateCategoryCtrl',
+    ['$scope', 'Category', 'Tag',
+        function($scope, Category, Tag ){
+            $scope.category = {};
+            $scope.category.tags = [];
+            $scope.tags = Tag.query();
+
+            $scope.addTag = function(tag){
+                console.log('addTag');
+                console.log(tag);
+                $scope.category.tags.push(tag);
+                $scope.tags.splice($scope.tags.indexOf(tag), 1);
+            }
+
+            $scope.removeTag = function(tag){
+                console.log('removeTag');
+                console.log(tag);
+                $scope.tags.push(tag);
+                $scope.category.tags.splice($scope.category.tags.indexOf(tag), 1);
+            }
+
+            $scope.save = function(){
+                console.log($scope.category);
+
+            }
+        }]);

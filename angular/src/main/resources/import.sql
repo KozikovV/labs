@@ -4,6 +4,27 @@ insert into role (role_id, name) values (2, 'student');
 insert into user (user_id, role_id, login, password) values (200, 1, 'teacher_login', '1234');
 insert into user (user_id, role_id, login, password) values (201, 2, 'student_login', '1234');
 
+insert into tag (tag_id, name, color) values (1, 'tag_1', '47a447');
+insert into tag (tag_id, name, color) values (2, 'tag_2', 'E22828');
+insert into tag (tag_id, name, color) values (3, 'tag_3', 'E34828');
+insert into tag (tag_id, name, color) values (4, 'tag_4', 'E24528');
+insert into tag (tag_id, name, color) values (5, 'tag_5', '232828');
+insert into tag (tag_id, name, color) values (6, 'tag_6', 'E22878');
+insert into tag (tag_id, name, color) values (7, 'tag_7', 'E45628');
+insert into tag (tag_id, name, color) values (8, 'tag_8', 'E28518');
+insert into tag (tag_id, name, color) values (9, 'tag_9', 'E28348');
+insert into tag (tag_id, name, color) values (10, 'tag_10', '345828');
+insert into tag (tag_id, name, color) values (11, 'tag_11', '788828');
+insert into tag (tag_id, name, color) values (12, 'tag_12', '345828');
+insert into tag (tag_id, name, color) values (13, 'tag_13', '576828');
+insert into tag (tag_id, name, color) values (14, 'tag_14', '567828');
+insert into tag (tag_id, name, color) values (15, 'tag_15', '567828');
+insert into tag (tag_id, name, color) values (16, 'tag_16', '567828');
+insert into tag (tag_id, name, color) values (17, 'tag_17', '562828');
+insert into tag (tag_id, name, color) values (18, 'tag_18', 'E45828');
+insert into tag (tag_id, name, color) values (19, 'tag_19', 'E22598');
+insert into tag (tag_id, name, color) values (20, 'tag_20', 'E26728');
+
 insert into category (category_id, name, description, parent_category_id) values (11, 'name_1_1', 'description_1_1', null);
 insert into category (category_id, name, description, parent_category_id) values (12, 'name_1_2', 'description_1_2', null);
 -- insert into category (category_id, name, description, parent_category_id) values (13, 'name_1_3', 'description_1_3', null);

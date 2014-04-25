@@ -15,6 +15,10 @@ myApp.config(['$routeProvider',
                 templateUrl: 'src/category.html',
                 controller: 'CategoryCtrl'
             })
+            .when('/create/category', {
+                templateUrl: 'src/createCategory.html',
+                controller: 'CreateCategoryCtrl'
+            })
             .when('/createTest/:categoryId', {
                 templateUrl: 'src/createTest.html',
                 controller: 'CreateTestCtrl'
