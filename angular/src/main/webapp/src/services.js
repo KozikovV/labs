@@ -6,7 +6,8 @@ angular.module('service', ['ngResource'])
         return Category;
     })
     .factory('Test', function ($resource) {
-        var Test = $resource('/api/test/:id');
+        var Test = $resource('/api/test/:id', {},
+            {update: { method: 'PUT' }});
 
 
         return Test;

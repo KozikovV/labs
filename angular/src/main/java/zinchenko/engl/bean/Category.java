@@ -1,14 +1,19 @@
 package zinchenko.engl.bean;
 
-import org.codehaus.jackson.annotate.JsonBackReference;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.annotate.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+//import org.codehaus.jackson.annotate.JsonBackReference;
+//import org.codehaus.jackson.annotate.JsonIgnore;
+//import org.codehaus.jackson.annotate.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "category")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Category {
 
     @Id
@@ -33,7 +38,7 @@ public class Category {
     private String description;
 
 //    @JsonIgnore
-    @JsonManagedReference
+//    @JsonManagedReference("category-test")
     @OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
     private List<Test> tests;
 

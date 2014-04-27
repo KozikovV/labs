@@ -1,5 +1,10 @@
+span.required{
+    color: red;
+}
+
+
 .main-content{
-    padding: 20px;
+    padding-top: 20px;
     width: 1000px;
     margin: auto;
 }
@@ -7,7 +12,7 @@
 .categories .category{
     float: left;
     width: 200px;
-    height: 380px;
+    height: 300px;
 }
 
 .tags:after{

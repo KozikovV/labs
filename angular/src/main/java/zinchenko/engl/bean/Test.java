@@ -1,7 +1,12 @@
 package zinchenko.engl.bean;
 
-import org.codehaus.jackson.annotate.JsonBackReference;
-import org.codehaus.jackson.annotate.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+//import org.codehaus.jackson.annotate.JsonBackReference;
+//import org.codehaus.jackson.annotate.JsonManagedReference;
+//import org.codehaus.jackson.annotate.JsonProperty;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 
@@ -12,6 +17,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "test")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Test {
 
     @Id
@@ -31,7 +37,8 @@ public class Test {
     @Cascade(CascadeType.SAVE_UPDATE)
     private List<Task> tasks;
 
-    @JsonBackReference
+//    @JsonProperty
+//    @JsonBackReference("category-test")
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;

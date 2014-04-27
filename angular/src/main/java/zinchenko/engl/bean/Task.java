@@ -1,7 +1,9 @@
 package zinchenko.engl.bean;
 
-import org.codehaus.jackson.annotate.JsonBackReference;
-import org.codehaus.jackson.annotate.JsonManagedReference;
+//import org.codehaus.jackson.annotate.JsonBackReference;
+//import org.codehaus.jackson.annotate.JsonManagedReference;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,10 +26,10 @@ public class Task {
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "test_id")
+    @JoinColumn(name = "test_id", nullable = false)
     private Test test;
 
-    @JsonManagedReference
+//    @JsonManagedReference
     @OneToMany(mappedBy = "task", fetch = FetchType.EAGER)
     private List<TaskComment> taskComments;
 

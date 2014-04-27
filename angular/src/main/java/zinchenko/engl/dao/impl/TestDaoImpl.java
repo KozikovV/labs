@@ -22,7 +22,13 @@ public class TestDaoImpl implements TestDao{
 
     @Override
     public Test save(Test test) {
-        sessionFactory.getCurrentSession().saveOrUpdate(test);
+        sessionFactory.getCurrentSession().save(test);
+        return test;
+    }
+
+    @Override
+    public Test update(Test test) {
+        sessionFactory.getCurrentSession().update(test);
         return test;
     }
 

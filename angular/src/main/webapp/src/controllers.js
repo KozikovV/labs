@@ -1,4 +1,4 @@
-var controllers = angular.module('controllers', ['service']);
+var controllers = angular.module('controllers', ['ngRoute', 'service']);
 
 controllers.controller('ListCtrl', ['$scope', '$http', 'Category',
     function ($scope, $http, Category) {
@@ -35,8 +35,8 @@ controllers.controller('TaskCtrl',
         }]);
 
 controllers.controller('CreateTestCtrl',
-    ['$scope', 'Category', 'Test', '$routeParams',
-        function ($scope, Category, Test, $routeParams) {
+    ['$scope', '$log', '$location', 'Category', 'Test', '$routeParams',
+        function ($scope, $log, $location, Category, Test, $routeParams) {
             console.log('CreateTestCtrl');
             $scope.category = Category.get({id: $routeParams.categoryId});
             $scope.test = $scope.test || {};
@@ -47,6 +47,8 @@ controllers.controller('CreateTestCtrl',
                 console.log($scope.test);
                 Test.save($scope.test, function(test){
                     console.log(test);
+                    console.log('test saved');
+                    $location.path('/test/'+test.id);
                 });
             }
             $scope.addTask = function () {
@@ -57,9 +59,18 @@ controllers.controller('CreateTestCtrl',
         }]);
 
 controllers.controller('UpdateTestCtrl',
-    ['$scope', 'Test', '$routeParams',
-        function($scope, Test, $routeParams){
+    ['$scope', '$location', 'Test', '$routeParams',
+        function($scope, $location, Test, $routeParams){
             $scope.test = Test.get({id: $routeParams.testId});
+            $scope.save = function () {
+                $scope.test.$update({}, function(test){
+                    $location.path('/test/'+test.id);
+                });
+            }
+            $scope.addTask = function () {
+                $scope.test.tasks = $scope.test.tasks || [];
+                $scope.test.tasks.push({});
+            }
         }]);
 
 controllers.controller('CreateCategoryCtrl',
@@ -79,7 +90,8 @@ controllers.controller('CreateCategoryCtrl',
             $scope.removeTag = function(tag){
                 console.log('removeTag');
                 console.log(tag);
-                $scope.tags.push(tag);
+                $scope.tags.push(tag
+                );
                 $scope.category.tags.splice($scope.category.tags.indexOf(tag), 1);
             }
 

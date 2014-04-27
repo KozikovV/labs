@@ -30,6 +30,13 @@ public class TestController {
         return testDao.save(test);
     }
 
+    @Transactional
+    @RequestMapping(method = RequestMethod.PUT)
+    public @ResponseBody
+    Test update(@RequestBody Test test){
+        return testDao.update(test);
+    }
+
     public TestDao getTestDao() {
         return testDao;
     }

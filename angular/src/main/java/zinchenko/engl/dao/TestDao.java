@@ -8,4 +8,6 @@ public interface TestDao {
 
     Test save(Test test);
 
+    Test update(Test test);
+
 }
