@@ -1,6 +1,7 @@
 <ol class="breadcrumb">
     <li><a href="#/list">Categories</a></li>
-    <li class="active">Create category</li>
+    <li ng-hide="category.id" class="active">Create category</li>
+    <li ng-show="category.id" class="active">Edit category '{{category.name}}'</li>
 </ol>
 
 <form name="form" novalidate>
@@ -42,11 +43,12 @@
     <div class="form-group">
         <label for="description">Available tags: </label>
         <div class="tags">
-            <div class="tag" ng-click="addTag(tag)" style="background-color: #{{tag.color}};" ng-repeat="tag in tags">
+            <div class="tag" ng-click="addTag(tag)"
+                 style="background-color: #{{tag.color}};" ng-repeat="tag in tags">
                 {{tag.name}}
             </div>
         </div>
         <div ng-show="tags.length == 0" class="alert alert-warning">You don't have tags.</div>
     </div>
-    <button ng-click="save()" class="btn btn-success">Create</button>
+    <button ng-click="save()" class="btn btn-success" ng-disabled="form.$invalid">Save</button>
 </form>

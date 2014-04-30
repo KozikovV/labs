@@ -74,10 +74,13 @@ controllers.controller('UpdateTestCtrl',
         }]);
 
 controllers.controller('CreateCategoryCtrl',
-    ['$scope', 'Category', 'Tag',
-        function($scope, Category, Tag ){
+    ['$scope', '$routeParams', 'Category', 'Tag',
+        function($scope, $routeParams, Category, Tag ){
             $scope.category = {};
             $scope.category.tags = [];
+            if($routeParams.categoryId){
+                $scope.category = Category.get({id:$routeParams.categoryId});
+            }
             $scope.tags = Tag.query();
 
             $scope.addTag = function(tag){

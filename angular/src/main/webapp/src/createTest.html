@@ -1,53 +1,66 @@
 <ol class="breadcrumb">
-    <li ng-show="test.category.name"><a href="#/category/{{test.category.id}}">Category "{{test.category.name}}"</a></li>
+    <li ng-show="test.category.name"><a href="#/category/{{test.category.id}}">Category "{{test.category.name}}"</a>
+    </li>
     <li ng-hide="test.category.name"><a href="#/categories">Categories</a></li>
     <li class="active">Create test</li>
 </ol>
-<div>
-    <form name="form" novalidate>
-        <button ng-click="save()" ng-disabled="form.$invalid"
-                class="btn btn-success">Save
-        </button>
 
-        <div class="form-group">
-            <label for="description">
-                <span class="required">* </span>
-                Description:
-            </label>
-            <textarea id="description" type="text" ng-model="test.description"
-                      class="form-control" name="description" rows="3" required></textarea>
-        </div>
-        <div ng-show="form.description.$dirty && form.description.$invalid">
-            <div class="alert alert-danger" ng-show="form.description.$error.required">
-                Description is required.
+<div class="test-layout">
+    <div class="test-form-section">
+        <form name="form" novalidate>
+            <button ng-click="save()" ng-disabled="form.$invalid"
+                    class="btn btn-success">
+                Save
+            </button>
+
+            <div class="form-group">
+                <label for="description">
+                    <span class="required">* </span>
+                    Description:
+                </label>
+                <textarea id="description" type="text" ng-model="test.description"
+                          class="form-control" name="description" rows="3" required></textarea>
+            </div>
+            <div ng-show="form.description.$dirty && form.description.$invalid">
+                <div class="alert alert-danger" ng-show="form.description.$error.required">
+                    Description is required.
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="required">* </span>
+                    Tasks:
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="task in test.tasks">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="question">Question: </label>
+                                    <input type="text" ng-model="task.question"
+                                           class="form-control" id="question">
+                                </div>
+                                <div class="form-group">
+                                    <label for="answer">Answer: </label>
+                                    <input type="text" ng-model="task.answer"
+                                           class="form-control" id="answer">
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-primary" ng-click="addTask()">Add task</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="image-browse-section">
+        <div class="images">
+            <div class="image" ng-repeat="image in images">
+
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <span class="required">* </span>
-                Tasks:
-            </div>
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="task in test.tasks">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label for="question">Question: </label>
-                                <input type="text" ng-model="task.question"
-                                       class="form-control" id="question">
-                            </div>
-                            <div class="form-group">
-                                <label for="answer">Answer: </label>
-                                <input type="text" ng-model="task.answer"
-                                       class="form-control" id="answer">
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-            <div class="panel-footer">
-                <button class="btn btn-primary" ng-click="addTask()">Add task</button>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
+
