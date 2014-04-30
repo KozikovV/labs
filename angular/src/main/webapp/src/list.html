@@ -1,33 +1,75 @@
 <ol class="breadcrumb">
     <li class="active">Categories</li>
 </ol>
-<a href="#/create/category" class="btn btn-success btn-sm">Create Category</a>
+<a href="#/create/category" ng-hide="category.id" class="btn btn-success btn-sm">Create Category</a>
+<a href="#/create/category/{{category.id}}" ng-show="category.id" class="btn btn-success btn-sm">Create Category</a>
+<div class="labels">
+    <!--Case when come to firs page of categories-->
+    <div class="label-container" ng-repeat="category in categories">
+        <div class="label-item label-category">
+            <div class="icon">
 
-<div class="categories">
-    <div class="category" ng-repeat="category in categories">
-        <h3>{{category.name}}</h3>
-        <p>{{category.description}}</p>
-        <div class="buttons">
-            <a href="#/category/{{category.id}}" class="btn btn-default">View</a>
-            <a href="#" class="btn btn-default">Edit</a>
+            </div>
+            <h3>{{category.name}}</h3>
+
+            <p>{{category.description}}</p>
+
+            <div class="buttons">
+                <a href="#/category/{{category.id}}" class="btn btn-default">View</a>
+                <a href="#" class="btn btn-default">Edit</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Case when come to second page of categories-->
+    <div class="label-container" ng-repeat="category in category.categories">
+        <div class="label-item label-category">
+            <div class="icon">
+
+            </div>
+            <h3>{{category.name}}</h3>
+
+            <p>{{category.description}}</p>
+
+            <div class="buttons">
+                <a href="#/category/{{category.id}}" class="btn btn-default">View</a>
+                <a href="#" class="btn btn-default">Edit</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="label-container" ng-repeat="test in category.tests">
+        <div class="label-item label-test">
+            <div class="icon">
+
+            </div>
+            <h3>{{test.name}}</h3>
+
+            <p>{{test.description}}</p>
+
+            <div class="buttons">
+                <a href="#/test/{{test.id}}" class="btn btn-default">View</a>
+                <a href="#/test/{{test.id}}/update" class="btn btn-default">Edit</a>
+            </div>
         </div>
     </div>
 </div>
 
+
 <!--<div class="list">-->
-    <!--<ul>-->
-        <!--<li ng-repeat="category in categories">-->
-            <!--<div ng-include="'category.html'"></div>-->
-        <!--</li>-->
-    <!--</ul>-->
+<!--<ul>-->
+<!--<li ng-repeat="category in categories">-->
+<!--<div ng-include="'category.html'"></div>-->
+<!--</li>-->
+<!--</ul>-->
 <!--</div>-->
 
 <!--<script type="text/ng-template" id="category.html">-->
-    <!--Category - {{category.id}} - {{category.name}} --->
-    <!--<a href="#/category/{{category.id}}">view</a>-->
-    <!--<ul>-->
-        <!--<li ng-repeat="category in category.categories">-->
-            <!--<div ng-include="'category.html'"></div>-->
-        <!--</li>-->
-    <!--</ul>-->
+<!--Category - {{category.id}} - {{category.name}} --->
+<!--<a href="#/category/{{category.id}}">view</a>-->
+<!--<ul>-->
+<!--<li ng-repeat="category in category.categories">-->
+<!--<div ng-include="'category.html'"></div>-->
+<!--</li>-->
+<!--</ul>-->
 <!--</script>-->

@@ -36,14 +36,14 @@ insert into category (category_id, name, description, parent_category_id) values
 insert into category (category_id, name, description, parent_category_id) values (19, 'name_1_9', 'description_1_9 desc ript', null);
 insert into category (category_id, name, description, parent_category_id) values (20, 'name_1_10', 'description_1_10', null);
 
--- insert into category (category_id, name, description, parent_category_id) values (21, 'name_2_1', 'description_2_1', 11);
--- insert into category (category_id, name, description, parent_category_id) values (22, 'name_2_2', 'description_2_2', 11);
--- insert into category (category_id, name, description, parent_category_id) values (23, 'name_2_3', 'description_2_3', 11);
--- insert into category (category_id, name, description, parent_category_id) values (24, 'name_2_4', 'description_2_4', 12);
--- insert into category (category_id, name, description, parent_category_id) values (25, 'name_2_1', 'description_2_1', 12);
--- insert into category (category_id, name, description, parent_category_id) values (26, 'name_2_1', 'description_2_1', 13);
+insert into category (category_id, name, description, parent_category_id) values (21, 'name_2_1', 'description_2_1', 11);
+insert into category (category_id, name, description, parent_category_id) values (22, 'name_2_2', 'description_2_2', 11);
+insert into category (category_id, name, description, parent_category_id) values (23, 'name_2_3', 'description_2_3', 11);
+insert into category (category_id, name, description, parent_category_id) values (24, 'name_2_4', 'description_2_4', 12);
+insert into category (category_id, name, description, parent_category_id) values (25, 'name_2_1', 'description_2_1', 12);
+insert into category (category_id, name, description, parent_category_id) values (26, 'name_2_1', 'description_2_1', 13);
 
--- insert into category (category_id, name, description, parent_category_id) values (31, 'name_3_1', 'description_3_1', 21);
+insert into category (category_id, name, description, parent_category_id) values (31, 'name_3_1', 'description_3_1', 21);
 
 insert into test (test_id, name, description, category_id) values (100, 'name_100', 'description_100', 11);
 insert into test (test_id, name, description, category_id) values (101, 'name_101', 'description_101', 11);

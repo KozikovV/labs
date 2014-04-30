@@ -9,10 +9,31 @@ span.required{
     margin: auto;
 }
 
-.categories .category{
+.labels .label-container{
     float: left;
     width: 200px;
     height: 300px;
+    padding: 5px;
+}
+
+.labels .label-item{
+    border: 1px solid;
+    border-radius: 5px;
+    height: 100%;
+    padding: 10px;
+}
+
+.labels .label-category{
+    border-color: #adadad;
+}
+
+.labels .label-test{
+    border-color: rgba(244, 248, 118, 0.59);
+}
+
+.label-item .icon{
+    background: #428bca;
+    height: 130px
 }
 
 .tags:after{

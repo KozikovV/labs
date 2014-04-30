@@ -11,8 +11,8 @@
     <script src="/src/controllers.js"></script>
     <script src="/src/services.js"></script>
 
-    <link href="styles/style.css" type="text/css" rel="stylesheet">
-    <link href="styles/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 
