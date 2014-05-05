@@ -2,10 +2,7 @@ package zinchenko.engl.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import zinchenko.engl.bean.Image;
 import zinchenko.engl.dao.ImageDao;
@@ -30,7 +27,7 @@ public class ImageController {
     @Transactional
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public @ResponseBody
-    Image save(@RequestParam("file") MultipartFile file){
+    Image save(@RequestParam("file") MultipartFile file, @RequestBody Image image){
 
         return new Image();
     }
