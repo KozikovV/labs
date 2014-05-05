@@ -13,6 +13,8 @@
 
     <context:property-placeholder location="classpath:zinchenko/dao.properties"/>
 
+    <context:property-placeholder location="classpath:zinchenko/main.properties"/>
+
     <mvc:annotation-driven/>
 
     <bean id="clientSideProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">

@@ -28,7 +28,7 @@ adminkaControllers.controller('AdminkaImagesCtrl', ['$scope', 'Image', '$upload'
 
             $upload.upload({
                 url: '/api/image/save',
-                file: file[0],
+                //file: file[0],
                 data: image
             }).progress(function (evt) {
                     console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
