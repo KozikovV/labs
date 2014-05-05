@@ -1,46 +1,54 @@
-span.required{
+/*   Commons   */
+span.required {
     color: red;
+}
+.frame{
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 
-.main-content{
+
+
+.main-content {
     padding-top: 20px;
     width: 1000px;
     margin: auto;
 }
 
-.labels .label-container{
+.labels .label-container {
     float: left;
     width: 200px;
     height: 300px;
     padding: 5px;
 }
 
-.labels .label-item{
+.labels .label-item {
     border: 1px solid;
     border-radius: 5px;
     height: 100%;
     padding: 10px;
 }
 
-.labels .label-category{
+.labels .label-category {
     border-color: #adadad;
 }
 
-.labels .label-test{
+.labels .label-test {
     border-color: rgba(244, 248, 118, 0.59);
 }
 
-.label-item .icon{
+.label-item .icon {
     background: #428bca;
     height: 130px
 }
 
-.tags:after{
+.tags:after {
     content: " ";
 }
 
-.tag{
+.tag {
     /*float: left;*/
     color: #ffffff;
     padding: 3px 8px;
@@ -49,6 +57,79 @@ span.required{
     display: inline-block;
     cursor: pointer;
 }
+
+/*  Test create/update  */
+.test-section {
+    position: relative;
+}
+
+.test-section .test-form-section {
+    position: absolute;
+    width: 580px;
+}
+
+.test-section .image-browse-section {
+    position: absolute;
+    width: 400px;
+    right: 0;
+}
+.image-browse-section .image-container{
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    float: left;
+}
+.image-browse-section .image{
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    height: 100%;
+    padding: 5px;
+}
+.image-browse-section .image:hover{
+    border-color: #428bca;
+}
+
+.image-browse-section img{
+    width: 100%;
+}
+
+.task-form-section{
+    margin-right: 200px;
+}
+.task-image-section{
+    width: 180px;
+    float: right;
+    margin-top: 20px;
+}
+.task-image-section img{
+    width: 100%;
+}
+
+/*   Adminka   */
+.adminka-menu{
+    width: 250px;
+    float: left;
+}
+.adminka-content{
+    margin-left: 270px;
+}
+.images-manage .image{
+    width: 300px;
+    /*float: left;*/
+    padding: 5px;
+    float: right;
+}
+.images-manage .image img{
+    width: 100%;
+}
+.images-manage .image-details{
+    margin-right: 320px;
+}
+
+
+
+
+
 
 
 

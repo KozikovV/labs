@@ -33,6 +33,10 @@ public class Task {
     @OneToMany(mappedBy = "task", fetch = FetchType.EAGER)
     private List<TaskComment> taskComments;
 
+    @ManyToOne
+    @JoinColumn(name = "image_id")
+    private Image image;
+
     public Long getId() {
         return id;
     }
@@ -71,5 +75,13 @@ public class Task {
 
     public void setTaskComments(List<TaskComment> taskComments) {
         this.taskComments = taskComments;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

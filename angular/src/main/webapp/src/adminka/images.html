@@ -1,0 +1,62 @@
+<ol class="breadcrumb">
+    <li><a href="#/adminka">Adminka</a></li>
+    <li class="active">Images</li>
+</ol>
+
+<div class="adminka-menu" adminka-menu current-item-key="images"></div>
+<div class="adminka-content">
+    <div class="panel-group">
+        <button class="btn btn-primary" ng-click="addImage()">Add Image</button>
+    </div>
+
+    <div class="list-group images-manage">
+        <form name="form" novalidate>
+
+            <div class="list-group-item image-item" ng-repeat="image in images" ng-form="imageForm">
+                <div ng-show="image.fileName" class="image frame">
+                    <img src="{{config.environment.imagesPath}}/{{image.fileName}}">
+                </div>
+                <div class="image-details">
+                    <div class="alert alert-warning" ng-show="imageForm.$dirty">
+                        Image was changed.
+                    </div>
+                    <div class="form-group">
+                        <label for="name_{{$index}}">Name: </label>
+                        <input id="name_{{$index}}" ng-model="image.name" class="form-control" name="name" required>
+                    </div>
+                    <div ng-show="imageForm.name.$dirty && imageForm.name.$invalid">
+                        <div class="alert alert-danger" ng-show="imageForm.name.$error.required">
+                            Name is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description_{{$index}}">Desciption: </label>
+                        <input id="description_{{$index}}" ng-model="image.description" class="form-control"
+                               name="description" required>
+                    </div>
+                    <div ng-show="imageForm.description.$dirty && imageForm.description.$invalid">
+                        <div class="alert alert-danger" ng-show="imageForm.description.$error.required">
+                            Description is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">File: </label>
+                        <input id="file" type="file" ng-model="file" class="form-control" name="file" ng-file-select="fileSelect(image, $files)">
+                    </div>
+                    <div ng-show="imageForm.file.$dirty && imageForm.file.$invalid">
+                        <div class="alert alert-danger" ng-show="imageForm.file.$error.required">
+                            File is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-danger" ng-click="remove(image)">Remove</button>
+                        <button class="btn btn-success" ng-click="save(image)" ng-disabled="imageForm.$invalid">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-group">
+        <button class="btn btn-primary" ng-click="addImage()">Add Image</button>
+    </div>
+</div>

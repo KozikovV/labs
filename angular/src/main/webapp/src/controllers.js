@@ -3,6 +3,8 @@ var controllers = angular.module('controllers', ['ngRoute', 'service']);
 controllers.controller('ListCtrl', ['$scope', '$http', 'Category',
     function ($scope, $http, Category) {
         $scope.categories = Category.query();
+
+        $scope.word = "nyWord";
     }]);
 
 controllers.controller('CategoryCtrl',
@@ -35,12 +37,16 @@ controllers.controller('TaskCtrl',
         }]);
 
 controllers.controller('CreateTestCtrl',
-    ['$scope', '$log', '$location', 'Category', 'Test', '$routeParams',
-        function ($scope, $log, $location, Category, Test, $routeParams) {
+    ['$scope', '$log', '$location', 'Category', 'Test', 'Image',
+        'Config', '$routeParams',
+        function ($scope, $log, $location, Category, Test, Image,
+                  Config, $routeParams) {
             console.log('CreateTestCtrl');
             $scope.category = Category.get({id: $routeParams.categoryId});
             $scope.test = $scope.test || {};
             $scope.test.category = $scope.test.category || {};
+            $scope.images = Image.query();
+            $scope.config = Config.load();
 //            $scope.test.category.id = $scope.test.category.id || $scope.category.id;
             $scope.save = function () {
                 $scope.test.category.id = $scope.test.category.id || $scope.category.id;
@@ -58,10 +64,13 @@ controllers.controller('CreateTestCtrl',
             }
         }]);
 
+//TODO | need to write directive for image browse section
 controllers.controller('UpdateTestCtrl',
-    ['$scope', '$location', 'Test', '$routeParams',
-        function($scope, $location, Test, $routeParams){
+    ['$scope', '$location', 'Test', 'Image', 'Config', '$routeParams',
+        function($scope, $location, Test, Image, Config, $routeParams){
             $scope.test = Test.get({id: $routeParams.testId});
+            $scope.images = Image.query();
+            $scope.config = Config.load();
             $scope.save = function () {
                 $scope.test.$update({}, function(test){
                     $location.path('/test/'+test.id);
@@ -93,13 +102,12 @@ controllers.controller('CreateCategoryCtrl',
             $scope.removeTag = function(tag){
                 console.log('removeTag');
                 console.log(tag);
-                $scope.tags.push(tag
-                );
+                $scope.tags.push(tag);
                 $scope.category.tags.splice($scope.category.tags.indexOf(tag), 1);
             }
 
-            $scope.save = function(){
+            $scope.save = function(image){
                 console.log($scope.category);
-
+                console.log(image);
             }
         }]);

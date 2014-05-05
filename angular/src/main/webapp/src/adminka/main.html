@@ -1,0 +1,21 @@
+<ol class="breadcrumb">
+    <li class="active">Adminka</li>
+</ol>
+<div class="adminka-menu" adminka-menu></div>
+<div class="adminka-content">
+    <div class="big-menu-items">
+        <div class="col-sm-6 col-md-4" ng-repeat="item in items">
+            <a href="#{{item.url}}">
+                <div class="thumbnail">
+                    <img src="{{config.environment.adminkaIconsPath}}/{{item.icon}}" alt="...">
+
+                    <div class="caption">
+                        <h3>{{item.name}}</h3>
+
+                        <p>{{item.description}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

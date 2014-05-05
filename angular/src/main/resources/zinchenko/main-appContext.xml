@@ -15,4 +15,8 @@
 
     <mvc:annotation-driven/>
 
+    <bean id="clientSideProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:zinchenko/clientSide.properties"/>
+    </bean>
+
 </beans>

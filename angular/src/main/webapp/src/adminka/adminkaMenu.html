@@ -1,0 +1,6 @@
+<div class="list-group">
+    <a ng-repeat="item in items" href="#{{item.url}}"
+       class="list-group-item" ng-class="{active: item.key == currentItemKey}">
+        {{item.name}}
+    </a>
+</div>

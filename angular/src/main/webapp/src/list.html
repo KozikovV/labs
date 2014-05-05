@@ -3,6 +3,8 @@
 </ol>
 <a href="#/create/category" ng-hide="category.id" class="btn btn-success btn-sm">Create Category</a>
 <a href="#/create/category/{{category.id}}" ng-show="category.id" class="btn btn-success btn-sm">Create Category</a>
+<a href="#/createTest/{{category.id}}" ng-show="category.id" class="btn btn-success btn-sm">Create Test</a>
+<a href="#/adminka" class="btn btn-success btn-sm">To Adminka</a>
 <div class="labels">
     <!--Case when come to firs page of categories-->
     <div class="label-container" ng-repeat="category in categories">

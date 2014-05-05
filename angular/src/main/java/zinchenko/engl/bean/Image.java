@@ -1,5 +1,8 @@
 package zinchenko.engl.bean;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +17,28 @@ public class Image {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name="description")
+    private String description;
+
+    @Column(name = "file_name")
+    private String fileName;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
     public String getName() {
         return name;

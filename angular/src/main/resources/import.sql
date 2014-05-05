@@ -25,6 +25,15 @@ insert into tag (tag_id, name, color) values (18, 'tag_18', 'E45828');
 insert into tag (tag_id, name, color) values (19, 'tag_19', 'E22598');
 insert into tag (tag_id, name, color) values (20, 'tag_20', 'E26728');
 
+insert into image (image_id, name, description, file_name) values (50, 'image name 50', 'ima ge desc ript ion 50', 'image1.jpg');
+insert into image (image_id, name, description, file_name) values (51, 'image name 51', 'ima gedesc ript ion 51', 'image2.jpg');
+insert into image (image_id, name, description, file_name) values (52, 'image name 52', 'ima gedesc ription 52', 'image3.jpg');
+insert into image (image_id, name, description, file_name) values (53, 'image name 53', 'ima ge description 53', 'image4.jpg');
+insert into image (image_id, name, description, file_name) values (54, 'image name 54', 'ima ge description 54', 'image5.jpg');
+insert into image (image_id, name, description, file_name) values (55, 'image name 55', 'ima ge description 55', 'image6.jpg');
+insert into image (image_id, name, description, file_name) values (56, 'image name 56', 'ima ge description 56', 'image7.jpg');
+insert into image (image_id, name, description, file_name) values (57, 'image name 57', 'ima ge description 57', 'image8.jpg');
+
 insert into category (category_id, name, description, parent_category_id) values (11, 'name_1_1', 'description_1_1 descri descrip', null);
 insert into category (category_id, name, description, parent_category_id) values (12, 'name_1_2', 'description_1_2 descript cription', null);
 insert into category (category_id, name, description, parent_category_id) values (13, 'name_1_3', 'description_1_3', null);
@@ -50,14 +59,14 @@ insert into test (test_id, name, description, category_id) values (101, 'name_10
 insert into test (test_id, name, description, category_id) values (102, 'name_102', 'description_102', 11);
 insert into test (test_id, name, description, category_id) values (103, 'name_103', 'description_103', 11);
 
-insert into task (task_id, question, answer, test_id) values (500, 'question_500', 'answer_500', 100);
-insert into task (task_id, question, answer, test_id) values (501, 'question_501', 'answer_501', 100);
-insert into task (task_id, question, answer, test_id) values (502, 'question_502', 'answer_502', 100);
-insert into task (task_id, question, answer, test_id) values (503, 'question_503', 'answer_503', 100);
-insert into task (task_id, question, answer, test_id) values (504, 'question_504', 'answer_504', 100);
-insert into task (task_id, question, answer, test_id) values (505, 'question_505', 'answer_505', 100);
-insert into task (task_id, question, answer, test_id) values (506, 'question_506', 'answer_506', 100);
-insert into task (task_id, question, answer, test_id) values (507, 'question_507', 'answer_507', 100);
+insert into task (task_id, question, answer, test_id, image_id) values (500, 'question_500', 'answer_500', 100, 50);
+insert into task (task_id, question, answer, test_id, image_id) values (501, 'question_501', 'answer_501', 100, 51);
+insert into task (task_id, question, answer, test_id, image_id) values (502, 'question_502', 'answer_502', 100, 52);
+insert into task (task_id, question, answer, test_id, image_id) values (503, 'question_503', 'answer_503', 100, 53);
+insert into task (task_id, question, answer, test_id, image_id) values (504, 'question_504', 'answer_504', 100, 54);
+insert into task (task_id, question, answer, test_id, image_id) values (505, 'question_505', 'answer_505', 100, 55);
+insert into task (task_id, question, answer, test_id, image_id) values (506, 'question_506', 'answer_506', 100, 56);
+insert into task (task_id, question, answer, test_id, image_id) values (507, 'question_507', 'answer_507', 100, 57);
 
 insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1000, 201, 500, 'comment_1000 from 201', '2014-11-11');
 insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1001, 200, 500, 'comment_1001 from 200', '2014-11-11');
