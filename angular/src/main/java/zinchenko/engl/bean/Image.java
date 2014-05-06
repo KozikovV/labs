@@ -6,19 +6,23 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javax.persistence.*;
 
 @Entity
-@Table(name="image")
+@Table(name = "image")
 public class Image {
 
+    //    @Id
+    //    @Column(name = "image_id")
+    //    @GeneratedValue(generator = "image_gen", strategy = GenerationType.SEQUENCE)
+    //    @SequenceGenerator(name = "image_gen", sequenceName = "image_seq")
     @Id
     @Column(name = "image_id")
-    @GeneratedValue(generator = "image_gen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "image_gen", sequenceName = "image_seq")
+    @GeneratedValue(generator = "img_generator", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "img_generator", sequenceName = "img_seq")
     private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
 
     @Column(name = "file_name")

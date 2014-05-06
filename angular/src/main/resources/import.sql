@@ -59,17 +59,17 @@ insert into test (test_id, name, description, category_id) values (101, 'name_10
 insert into test (test_id, name, description, category_id) values (102, 'name_102', 'description_102', 11);
 insert into test (test_id, name, description, category_id) values (103, 'name_103', 'description_103', 11);
 
-insert into task (task_id, question, answer, test_id, image_id) values (500, 'question_500', 'answer_500', 100, 50);
-insert into task (task_id, question, answer, test_id, image_id) values (501, 'question_501', 'answer_501', 100, 51);
-insert into task (task_id, question, answer, test_id, image_id) values (502, 'question_502', 'answer_502', 100, 52);
-insert into task (task_id, question, answer, test_id, image_id) values (503, 'question_503', 'answer_503', 100, 53);
-insert into task (task_id, question, answer, test_id, image_id) values (504, 'question_504', 'answer_504', 100, 54);
-insert into task (task_id, question, answer, test_id, image_id) values (505, 'question_505', 'answer_505', 100, 55);
-insert into task (task_id, question, answer, test_id, image_id) values (506, 'question_506', 'answer_506', 100, 56);
-insert into task (task_id, question, answer, test_id, image_id) values (507, 'question_507', 'answer_507', 100, 57);
+-- insert into task (task_id, question, answer, test_id, image_id) values (500, 'question_500', 'answer_500', 100, 50);
+-- insert into task (task_id, question, answer, test_id, image_id) values (501, 'question_501', 'answer_501', 100, 51);
+-- insert into task (task_id, question, answer, test_id, image_id) values (502, 'question_502', 'answer_502', 100, 52);
+-- insert into task (task_id, question, answer, test_id, image_id) values (503, 'question_503', 'answer_503', 100, 53);
+-- insert into task (task_id, question, answer, test_id, image_id) values (504, 'question_504', 'answer_504', 100, 54);
+-- insert into task (task_id, question, answer, test_id, image_id) values (505, 'question_505', 'answer_505', 100, 55);
+-- insert into task (task_id, question, answer, test_id, image_id) values (506, 'question_506', 'answer_506', 100, 56);
+-- insert into task (task_id, question, answer, test_id, image_id) values (507, 'question_507', 'answer_507', 100, 57);
 
-insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1000, 201, 500, 'comment_1000 from 201', '2014-11-11');
-insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1001, 200, 500, 'comment_1001 from 200', '2014-11-11');
-insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1002, 201, 500, 'comment_1002 from 201', '2014-11-11');
-insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1003, 200, 500, 'comment_1003 from 200', '2014-11-11');
-insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1004, 201, 500, 'comment_1004 from 201', '2014-11-11');
+-- insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1000, 201, 500, 'comment_1000 from 201', '2014-11-11');
+-- insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1001, 200, 500, 'comment_1001 from 200', '2014-11-11');
+-- insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1002, 201, 500, 'comment_1002 from 201', '2014-11-11');
+-- insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1003, 200, 500, 'comment_1003 from 200', '2014-11-11');
+-- insert into task_comment (task_comment_id, reporter_id, task_id, content, created) values (1004, 201, 500, 'comment_1004 from 201', '2014-11-11');

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import zinchenko.engl.bean.Image;
 import zinchenko.engl.dao.ImageDao;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -18,6 +19,16 @@ public class ImageDaoImpl implements ImageDao{
     public List<Image> findAll() {
         return sessionFactory.getCurrentSession()
                 .createCriteria(Image.class).list();
+    }
+
+    @Transactional
+    public void save(Image image){
+        Image i = new Image();
+//        i.setId(System.currentTimeMillis());
+        i.setFileName("qwe.qwe");
+        i.setName("sad");
+        i.setDescription("asdasdasd");
+        sessionFactory.getCurrentSession().saveOrUpdate(image);
     }
 
     public SessionFactory getSessionFactory() {

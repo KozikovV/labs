@@ -8,4 +8,6 @@ public interface ImageDao {
 
     List<Image> findAll();
 
+    void save(Image image);
+
 }

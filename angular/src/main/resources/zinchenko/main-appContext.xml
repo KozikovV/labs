@@ -11,6 +11,8 @@
     <context:component-scan base-package="zinchenko.engl.controllers"/>
     <context:component-scan base-package="zinchenko.engl.dao"/>
 
+    <context:annotation-config/>
+
     <context:property-placeholder location="classpath:zinchenko/dao.properties"/>
 
     <context:property-placeholder location="classpath:zinchenko/main.properties"/>
