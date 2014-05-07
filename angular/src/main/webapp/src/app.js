@@ -72,6 +72,26 @@ myApp.directive('imageBrowser', function(){
     }
 })
 
+myApp.directive('validFile',function(){
+    return {
+        require:'ngModel',
+        link:function(scope,el,attrs,ngModel){
+            el.bind('change',function(){
+                scope.$apply(function(){
+                    ngModel.$setViewValue(el.val());
+                    ngModel.$render();
+                });
+            });
+            el.bind('click', function(){
+                scope.$apply(function(){
+                    ngModel.$setViewValue();
+                    ngModel.$render();
+                });
+            });
+        }
+    }
+});
+
 myApp.service('taskService', function () {
     var _tasks = [];
 

@@ -23,6 +23,45 @@
    <div class="col2">Колонка 2</div>
    <div class="col3">Колонка 3</div>
   </div>
+ <br/>
+ <br/>
+ ------
+ <br/>
+ <br/>
+
+ <style>
+     .fr{
+         border: 1px solid;
+         clear: left;
+     }
+     .fr:after{
+         content: 'v';
+         clear: both;
+         display: block;
+
+     }
+     .bl{
+         background-color: #269abc;
+         float: left;
+         /*height: 200px;*/
+         width: 200px;
+         /*clear: left;*/
+     }
+     /*.bl:after{*/
+         /*content: 'v';*/
+         /*clear: both;*/
+         /*display: block;*/
+     /*}*/
+ </style>
+
+ <div class="fr">
+     <div class="bl">asd<br/>asd<br/>asd<br/>asd<br/></div>
+     <div class="bl">asd<br/>asd<br/>asd<br/>asd<br/>asd<br/>asd<br/></div>
+
+ </div>
+
+
+
 </body>
 </html>
 

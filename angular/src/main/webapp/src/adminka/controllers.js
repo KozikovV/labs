@@ -17,9 +17,20 @@ adminkaControllers.controller('AdminkaImagesCtrl', ['$scope', 'Image', '$upload'
             console.log("images -------- ");
             console.log($scope.images.$resolved);
         }
+        $scope.edit = function(image){
+            image.edit=true;
+            image.old = angular.extend({}, image, {});
+        }
+        $scope.cancel = function(image){
+            angular.extend(image, image.old);
+            delete image.old;
+            image.edit=false;
+        }
         $scope.save = function (image) {
             console.log('save()');
             console.log(image);
+
+
 
             $upload.upload({
                 url: '/api/image/save',
@@ -30,6 +41,8 @@ adminkaControllers.controller('AdminkaImagesCtrl', ['$scope', 'Image', '$upload'
                     console.log('s');
                     console.log(data);
                     angular.extend(image, data);
+                    image.edit=false;
+                    delete image.old;
                 }).error(function () {
                     console.log('error');
                 });

@@ -90,7 +90,10 @@ span.required {
 }
 
 .image-browse-section img{
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
 }
 
 .task-form-section{
@@ -119,11 +122,19 @@ span.required {
     padding: 5px;
     float: right;
 }
+/*.images-manage .image:after{*/
+    /*content: ;*/
+/*}*/
 .images-manage .image img{
     width: 100%;
 }
 .images-manage .image-details{
     margin-right: 320px;
+}
+.image-item:after{
+    content: ' ';
+    display: block;
+    clear: both;
 }
 
 

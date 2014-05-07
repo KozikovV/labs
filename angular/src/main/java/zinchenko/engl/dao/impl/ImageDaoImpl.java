@@ -23,11 +23,6 @@ public class ImageDaoImpl implements ImageDao{
 
     @Transactional
     public void save(Image image){
-        Image i = new Image();
-//        i.setId(System.currentTimeMillis());
-        i.setFileName("qwe.qwe");
-        i.setName("sad");
-        i.setDescription("asdasdasd");
         sessionFactory.getCurrentSession().saveOrUpdate(image);
     }
 
