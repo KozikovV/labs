@@ -18,9 +18,9 @@
     <link href="styles/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-
+<div global-message></div>
 <div class="main-content">
-    <div ng-view>fdh</div>
+    <div ng-view></div>
 </div>
 
 </body>

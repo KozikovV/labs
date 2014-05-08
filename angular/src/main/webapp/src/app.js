@@ -55,35 +55,35 @@ myApp.config(['$routeProvider',
 
     }]);
 
-myApp.run(function($rootScope, Config){
+myApp.run(function ($rootScope, Config) {
     $rootScope.config = Config.load();
     console.log($rootScope.config);
 });
 
-myApp.directive('imageBrowser', function(){
+myApp.directive('imageBrowser', function () {
     return {
         templateUrl: '/src/imageBrowser.html',
         scope: {
             images: '=images'
         },
-            controller: function ($scope, $element, $attrs, $transclude, Config) {
-                $scope.config = Config.load();
+        controller: function ($scope, $element, $attrs, $transclude, Config) {
+            $scope.config = Config.load();
         }
     }
 })
 
-myApp.directive('validFile',function(){
+myApp.directive('validFile', function () {
     return {
-        require:'ngModel',
-        link:function(scope,el,attrs,ngModel){
-            el.bind('change',function(){
-                scope.$apply(function(){
+        require: 'ngModel',
+        link: function (scope, el, attrs, ngModel) {
+            el.bind('change', function () {
+                scope.$apply(function () {
                     ngModel.$setViewValue(el.val());
                     ngModel.$render();
                 });
             });
-            el.bind('click', function(){
-                scope.$apply(function(){
+            el.bind('click', function () {
+                scope.$apply(function () {
                     ngModel.$setViewValue();
                     ngModel.$render();
                 });
@@ -92,12 +92,84 @@ myApp.directive('validFile',function(){
     }
 });
 
+myApp.service('globalMessageService', [function () {
+//    /**
+//     * @type {{key:{
+//     *     text: ' ',
+//     *     type: 'danger'
+//     * }}}
+//     */
+        var messages = [];
+        /**
+         * @type function(messages)
+         */
+        var updateListener;
+        return {
+            setUpdateListener: function (listener) {
+                updateListener = listener;
+            },
+            addDanger: function (message) {
+                messages.push({
+                    text: message,
+                    type: 'danger'
+                });
+                updateListener(messages);
+//                setTimeout(function () {
+//                    delete messages[key];
+//                    updateListener(messages);
+//                }, 4000);
+            },
+            getMessages: function () {
+                return messages;
+            },
+            removeMessage: function(message){
+                messages.splice(messages.indexOf(message), 1);
+                updateListener(messages);
+            }
+        }
+    }]);
+
+myApp.directive('globalMessage', ['globalMessageService',
+    function (globalMessageService) {
+        return {
+            templateUrl: '/src/globalMessage.html',
+            scope: {},
+            link: function (scope, elem, attrs) {
+                globalMessageService.setUpdateListener(function (messages) {
+                    scope.$apply(function () {
+                        scope.messages = messages;
+                    });
+                });
+                scope.close = function(message){
+                    console.log('close');
+                    globalMessageService.removeMessage(message);
+                }
+
+
+
+                setTimeout(function(){
+                    globalMessageService.addDanger('my danger!!!');
+                }, 10);
+                setTimeout(function () {
+                    globalMessageService.addDanger('my danger 2 !!!')
+                }, 3000);
+                setTimeout(function () {
+                    globalMessageService.addDanger('my danger 3 !!!')
+                }, 5000);
+
+
+
+//                scope.messages = globalMessageService.getMessages();
+            }
+        }
+    }]);
+
 myApp.service('taskService', function () {
     var _tasks = [];
 
     this.setTasks = function (tasks) {
         _tasks = tasks;
-    }
+    };
 
     this.getTasks = function () {
         return _tasks;

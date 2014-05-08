@@ -1,0 +1,7 @@
+<div class="global-messages">
+    <div ng-repeat="mm in my">{{mm.name}}</div>
+    <div class="alert alert-danger" ng-repeat="message in messages">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="close(m)">×</button>
+        {{message.text}}
+    </div>
+</div>
