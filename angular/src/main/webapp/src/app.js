@@ -99,35 +99,53 @@ myApp.service('globalMessageService', [function () {
 //     *     type: 'danger'
 //     * }}}
 //     */
-        var messages = [];
+    var messages = [];
+
+    /**
+     * @type function(messages)
+     */
+    var updateListener;
+    return {
+        setUpdateListener: function (listener) {
+            updateListener = listener;
+        },
         /**
-         * @type function(messages)
+         *
+         * @param type can be: 'danger', 'success', 'info', 'warning'
+         * @param text
          */
-        var updateListener;
-        return {
-            setUpdateListener: function (listener) {
-                updateListener = listener;
-            },
-            addDanger: function (message) {
-                messages.push({
-                    text: message,
-                    type: 'danger'
-                });
-                updateListener(messages);
-//                setTimeout(function () {
-//                    delete messages[key];
-//                    updateListener(messages);
-//                }, 4000);
-            },
-            getMessages: function () {
-                return messages;
-            },
-            removeMessage: function(message){
+        addMessage: function (type, text) {
+            var message = {
+                text: text,
+                type: type
+            }
+            messages.push(message);
+            updateListener(messages);
+            setTimeout(function () {
                 messages.splice(messages.indexOf(message), 1);
                 updateListener(messages);
-            }
+            }, 4000);
+        },
+        addDanger: function (message) {
+            this.addMessage('danger', message)
+        },
+        addSuccess: function (message) {
+            this.addMessage('success', message)
+        },
+        addInfo: function (message) {
+            this.addMessage('info', message)
+        },
+        addWarning: function (message) {
+            this.addMessage('warning', message)
+        },
+        getMessages: function () {
+            return messages;
+        },
+        removeMessage: function (message) {
+            messages.splice(messages.indexOf(message), 1);
         }
-    }]);
+    }
+}]);
 
 myApp.directive('globalMessage', ['globalMessageService',
     function (globalMessageService) {
@@ -136,30 +154,15 @@ myApp.directive('globalMessage', ['globalMessageService',
             scope: {},
             link: function (scope, elem, attrs) {
                 globalMessageService.setUpdateListener(function (messages) {
-                    scope.$apply(function () {
-                        scope.messages = messages;
+                    setTimeout(function(){
+                        scope.$apply(function () {
+                            scope.messages = messages;
+                        });
                     });
                 });
-                scope.close = function(message){
-                    console.log('close');
+                scope.close = function (message) {
                     globalMessageService.removeMessage(message);
                 }
-
-
-
-                setTimeout(function(){
-                    globalMessageService.addDanger('my danger!!!');
-                }, 10);
-                setTimeout(function () {
-                    globalMessageService.addDanger('my danger 2 !!!')
-                }, 3000);
-                setTimeout(function () {
-                    globalMessageService.addDanger('my danger 3 !!!')
-                }, 5000);
-
-
-
-//                scope.messages = globalMessageService.getMessages();
             }
         }
     }]);

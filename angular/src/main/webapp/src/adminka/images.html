@@ -15,6 +15,10 @@
             <span>Loading...</span>
         </div>
     </div>
+    <div class="alert alert-info" ng-show="!images.length && image.$resolved">
+        There isn't images.
+    </div>
+
 
     <div class="list-group images-manage">
         <form name="form" novalidate>
@@ -66,6 +70,8 @@
                         </button>
                         <button class="btn btn-primary" ng-click="edit(image)" ng-show="!image.edit">Edit</button>
                         <button class="btn btn-primary" ng-click="cancel(image)" ng-show="image.edit">Cancel</button>
+                        <label ng-show="saving">Saving...</label>
+                        <label ng-show="deleting">Deleting...</label>
                     </div>
                 </div>
             </div>

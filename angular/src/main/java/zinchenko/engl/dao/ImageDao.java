@@ -10,4 +10,6 @@ public interface ImageDao {
 
     void save(Image image);
 
+    void delete(Long id);
+
 }

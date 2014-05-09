@@ -26,6 +26,13 @@ public class ImageDaoImpl implements ImageDao{
         sessionFactory.getCurrentSession().saveOrUpdate(image);
     }
 
+    @Override
+    public void delete(Long id) {
+        Image image = new Image();
+        image.setId(id);
+        sessionFactory.getCurrentSession().delete(image);
+    }
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }

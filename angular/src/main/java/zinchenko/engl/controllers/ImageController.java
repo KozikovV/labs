@@ -3,6 +3,7 @@ package zinchenko.engl.controllers;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,7 +41,7 @@ public class ImageController {
     }
 
 //    @Transactional
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody
     Image save(HttpServletRequest request, MultipartFile file, Image image) throws IOException {
         String fileName = System.currentTimeMillis() + "-" + file.getOriginalFilename();
@@ -50,6 +51,13 @@ public class ImageController {
         image.setFileName(fileName);
         imageDao.save(image);
         return image;
+    }
+
+    @Transactional
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void delete(@PathVariable("id") Long id){
+        imageDao.delete(id);
     }
 
     public ImageDao getImageDao() {

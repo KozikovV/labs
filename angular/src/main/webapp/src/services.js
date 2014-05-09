@@ -19,7 +19,9 @@ angular.module('service', ['ngResource'])
         return tag;
     })
     .factory('Image', function ($resource) {
-        var Image = $resource('/api/image/:id');
+        var Image = $resource('/api/image/:id', {}, {
+            delete: {method: 'DELETE', params: {id: 'id'}}
+        });
 
 
         return Image;
