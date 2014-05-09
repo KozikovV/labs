@@ -45,6 +45,11 @@ public class CarHibernateCritDao implements CarDao{
     }
 
     @Override
+    public void merge(Car car) {
+
+    }
+
+    @Override
     public void delete(Car car) {
         sessionFactory.getCurrentSession().delete(car);
     }

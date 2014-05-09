@@ -1,22 +1,20 @@
 package zinchenko.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * User: zinchenko
  * Date: 13.01.14
  */
-//@Entity
+@Entity
 @Table(name = "CAR")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Car {
 
     @Id
-    @GeneratedValue
+    @Column(name="car_id")
+    @GeneratedValue(generator = "car_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "car_gen", sequenceName = "car_seq")
     private Long id;
 
 //    @MapsId("multiId")

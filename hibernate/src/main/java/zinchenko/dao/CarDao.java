@@ -16,6 +16,8 @@ public interface CarDao {
 
     public Long save(Car car);
 
+    public void merge(Car car);
+
     public void delete(Car car);
 
 }

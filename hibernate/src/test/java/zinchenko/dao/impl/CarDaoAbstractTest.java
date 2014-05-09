@@ -1,6 +1,8 @@
 package zinchenko.dao.impl;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -32,7 +34,9 @@ public abstract class CarDaoAbstractTest {
 
     @After
     public void after(){
-        sessionFactory.getCurrentSession().getTransaction().rollback();
+        if(sessionFactory.getCurrentSession().getTransaction().isActive()) {
+            sessionFactory.getCurrentSession().getTransaction().rollback();
+        }
     }
 
     @Test
@@ -109,6 +113,28 @@ public abstract class CarDaoAbstractTest {
         assertEquals((Object) 52L, result.get(0).getId());
         assertEquals((Object) 55L, result.get(1).getId());
         assertEquals((Object) 56L, result.get(2).getId());
+    }
+
+    @Test
+    public void t(){
+        Car car10 = new Car();
+        car10.setId(10L);
+        car10.setModel("first model");
+
+        Session session = sessionFactory.getCurrentSession();
+        Transaction t = session.beginTransaction();
+        session.save(car10);
+        session.flush();
+        t.commit();
+
+        Session session1 = sessionFactory.openSession();
+        Transaction t1 = session1.getTransaction();
+        Car car10FromDB = (Car) session1.get(Car.class, 10L);
+
+        assertEquals(car10.getId(), car10FromDB.getId());
+
+
+
     }
 
 }

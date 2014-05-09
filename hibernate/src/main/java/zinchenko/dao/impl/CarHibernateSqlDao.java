@@ -40,6 +40,11 @@ public class CarHibernateSqlDao implements CarDao {
     }
 
     @Override
+    public void merge(Car car) {
+
+    }
+
+    @Override
     public void delete(Car car) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
