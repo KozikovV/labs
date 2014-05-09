@@ -4,6 +4,7 @@ import javax.servlet.*;
 import java.io.IOException;
 
 public class RequestDebugFilter implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -11,11 +12,13 @@ public class RequestDebugFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        System.out.println("Debug filter");
         try {
-            Thread.sleep(4000L);
+            Thread.sleep(500L);
         } catch (InterruptedException e) {
             new RuntimeException("Fail debug filter.", e);
         }
+        chain.doFilter(request, response);
     }
 
     @Override
