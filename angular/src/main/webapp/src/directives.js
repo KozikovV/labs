@@ -5,14 +5,11 @@ directives.directive('loading', function(){
         templateUrl: '/src/loading.html',
         scope:{
             object: '=object',
-            message: '@message'
+            customMessage: '@message'
         },
         link: function($scope, $element, $attrs, $transclude){
-            console.log($scope.object);
-
-            if(!$scope.message) $scope.message = 'Loading...';
-            $scope.l = 'L...';
-            console.log('M: '+$scope.message);
+            $scope.message = 'Loading...';
+            if($scope.customMessage) $scope.message = $scope.customMessage;
         }
     }
 });

@@ -1,14 +1,14 @@
 <ol class="breadcrumb">
     <li class="active">Categories</li>
 </ol>
-<a href="#/create/category" ng-hide="category.id" class="btn btn-success btn-sm">Create Category</a>
-<a href="#/create/category/{{category.id}}" ng-show="category.id" class="btn btn-success btn-sm">Create Category</a>
-<a href="#/createTest/{{category.id}}" ng-show="category.id" class="btn btn-success btn-sm">Create Test</a>
-<a href="#/adminka" class="btn btn-success btn-sm">To Adminka</a>
+<div class="panel-group">
+    <a href="#/create/category" ng-hide="category.id" class="btn btn-success btn-sm">Create Category</a>
+    <a href="#/create/category/{{category.id}}" ng-show="category.id" class="btn btn-success btn-sm">Create Category</a>
+    <a href="#/createTest/{{category.id}}" ng-show="category.id" class="btn btn-success btn-sm">Create Test</a>
+    <a href="#/adminka" class="btn btn-success btn-sm">To Adminka</a>
+</div>
 <div class="labels">
     <!--Case when come to firs page of categories-->
-
-    <div loading object="categories" message="Loading of categories..."></div>
     <div loading object="categories"></div>
 
     <div class="label-container" ng-repeat="category in categories">
@@ -28,6 +28,7 @@
     </div>
 
     <!--Case when come to second page of categories-->
+    <div loading object="category"></div>
     <div class="label-container" ng-repeat="category in category.categories">
         <div class="label-item label-category">
             <div class="icon">
